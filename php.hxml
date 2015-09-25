@@ -1,0 +1,51 @@
+#integrate files to classpath
+-cp src
+
+-main Main
+--php-front joomlahaxe.php
+-php bin/com_joomlahaxe/site
+
+
+--next
+# Add the View 
+-cp src
+-main JoomlahaxeViewJoomlahaxe
+--php-front joomlahaxeview.php
+-php bin/com_joomlahaxe/site
+# this will be included into bin/com_joomlahaxe/site/views/joomlahaxe/view.html.php but we mustn't create duplicate haxe php libraries so it gets compiled here.
+# the file joomlahaxeview.php isn't actually used. 
+
+
+--next
+# Add the admin controls
+-cp src
+-main MainAdmin
+--php-front joomlahaxe.php
+-php bin/com_joomlahaxe/admin
+
+# --next
+# -cp src
+# -main JoomlahaxeController
+# --php-front controller.php
+# -php bin/com_joomlahaxe/site
+
+
+
+
+
+#Add debug information
+-debug
+
+#dead code elimination : remove unused code
+#"-dce no" : do not remove unused code
+#"-dce std" : remove unused code in the std lib (default)
+#"-dce full" : remove all unused code
+-dce full
+
+#-cmd (cd /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/ && zip -r com_joomlahaxe.zip com_joomlahaxe)
+-cmd (rm -f /Applications/MAMPold/htdocs_artworks/components/com_joomlahaxe/joomlahaxe.php)
+-cmd (rm -f /Applications/MAMPold/htdocs_artworks/components/com_joomlahaxe/joomlahaxeview.php)
+-cmd (rm -r -f /Applications/MAMPold/htdocs_artworks/components/com_joomlahaxe/lib/)
+-cmd (mv -f /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/site/joomlahaxe.php /Applications/MAMPold/htdocs_artworks/components/com_joomlahaxe/joomlahaxe.php)
+-cmd (mv -f /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/site/joomlahaxeview.php /Applications/MAMPold/htdocs_artworks/components/com_joomlahaxe/joomlahaxeview.php)
+-cmd (mv -f /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/site/lib /Applications/MAMPold/htdocs_artworks/components/com_joomlahaxe/)
