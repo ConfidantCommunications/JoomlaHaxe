@@ -7,6 +7,7 @@ class JViewLegacy implements Dynamic { }
 
 class JoomlahaxeViewJoomlahaxe extends JViewLegacy
 {
+	var msg:String;
 	public static function main () {
 		
 		new JoomlahaxeViewJoomlahaxe ();
@@ -24,16 +25,18 @@ class JoomlahaxeViewJoomlahaxe extends JViewLegacy
 		
 		
 	}
-// 	override public function display(?tpl) 
-// 		{
-// 			// Assign data to the view
-// 			//$this->msg = 'Hello World';
+	override public function display(?tpl:Dynamic) 
+		{
+			// Assign data to the view
+			msg = 'Hello World';
 
-// 			// Display the view
+			// Display the view
 // 			untyped{
 // 				__call__("parent::display","$tpl");
 // 			}
-// 		}
+			return super.display(tpl);
+			
+		}
 	
 	
 }

@@ -9,11 +9,12 @@
 --next
 # Add the View 
 -cp src
+# This class name needs to reflect the folder structure of the Joomla view. Joomlahaxe(component name) + View + Joomlahaxe(folder name of this view)
+# Joomla will 
 -main JoomlahaxeViewJoomlahaxe
---php-front joomlahaxeview.php
--php bin/com_joomlahaxe/site
-# this will be included into bin/com_joomlahaxe/site/views/joomlahaxe/view.html.php but we mustn't create duplicate haxe php libraries so it gets compiled here.
-# the file joomlahaxeview.php isn't actually used. 
+--php-front view.html.php 	
+--php-lib ../../lib
+-php bin/com_joomlahaxe/site/views/joomlahaxe
 
 
 --next
@@ -43,9 +44,13 @@
 -dce full
 
 #-cmd (cd /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/ && zip -r com_joomlahaxe.zip com_joomlahaxe)
--cmd (rm -f /Applications/MAMPold/htdocs_artworks/components/com_joomlahaxe/joomlahaxe.php)
--cmd (rm -f /Applications/MAMPold/htdocs_artworks/components/com_joomlahaxe/joomlahaxeview.php)
--cmd (rm -r -f /Applications/MAMPold/htdocs_artworks/components/com_joomlahaxe/lib/)
--cmd (mv -f /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/site/joomlahaxe.php /Applications/MAMPold/htdocs_artworks/components/com_joomlahaxe/joomlahaxe.php)
--cmd (mv -f /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/site/joomlahaxeview.php /Applications/MAMPold/htdocs_artworks/components/com_joomlahaxe/joomlahaxeview.php)
--cmd (mv -f /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/site/lib /Applications/MAMPold/htdocs_artworks/components/com_joomlahaxe/)
+
+-cmd (perl -pi -e 's/JoomlahaxeViewJoomlahaxe::main\(\);/require_once dirname\(__FILE__\)\."\/..\/..\/lib\/JoomlahaxeViewJoomlahaxe.class.php";/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/site/views/joomlahaxe/view.html.php)
+
+-cmd (cp -r /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/site/* /Applications/MAMPold/htdocs_artworks/components/com_joomlahaxe/)
+# -cmd (rm -f /Applications/MAMPold/htdocs_artworks/components/com_joomlahaxe/joomlahaxe.php)
+# -cmd (rm -f /Applications/MAMPold/htdocs_artworks/components/com_joomlahaxe/joomlahaxeview.php)
+# -cmd (rm -r -f /Applications/MAMPold/htdocs_artworks/components/com_joomlahaxe/lib/)
+# -cmd (mv -f /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/site/joomlahaxe.php /Applications/MAMPold/htdocs_artworks/components/com_joomlahaxe/joomlahaxe.php)
+# -cmd (mv -f /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/site/joomlahaxeview.php /Applications/MAMPold/htdocs_artworks/components/com_joomlahaxe/joomlahaxeview.php)
+# -cmd (mv -f /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/site/lib /Applications/MAMPold/htdocs_artworks/components/com_joomlahaxe/)
