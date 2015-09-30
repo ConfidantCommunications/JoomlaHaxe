@@ -34,6 +34,9 @@ class JoomlahaxeViewJoomlahaxe extends JViewLegacy
 // 			untyped{
 // 				__call__("parent::display","$tpl");
 // 			}
+			
+			//here tpl is a string which determines which view to use.
+			//Joomla will load default.php but if tpl=="sausage" then Joomla will display default_sausage.php
 			return super.display(tpl);
 			
 		}

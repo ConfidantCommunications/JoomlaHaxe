@@ -53,7 +53,7 @@
             ,"foldedRegions" : [
 
             ]
-            ,"activeLine" : 41
+            ,"activeLine" : 18
         }
         ,{
              "path" : "src/MainAdmin.hx"
@@ -71,7 +71,7 @@
             ,"foldedRegions" : [
 
             ]
-            ,"activeLine" : 10
+            ,"activeLine" : 29
         }
         ,{
              "path" : "src/JoomlahaxeController.hx"
@@ -80,10 +80,19 @@
             ,"foldedRegions" : [
 
             ]
-            ,"activeLine" : 14
+            ,"activeLine" : 9
+        }
+        ,{
+             "path" : "src/JoomlahaxeViewJoomlahaxe.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 38
         }
     ]
-    ,"activeFile" : "src/JoomlahaxeController.hx"
+    ,"activeFile" : "src/Main.hx"
     ,"openFLTarget" : null
     ,"openFLBuildMode" : "Debug"
     ,"runActionType" : null
