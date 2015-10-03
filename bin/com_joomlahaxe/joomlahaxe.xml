@@ -19,7 +19,11 @@
             <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
         </sql>
     </install>
-    
+    <uninstall> <!-- Runs on uninstall -->
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
 	<files folder="site">
 		<filename>index.html</filename>
 		<filename>joomlahaxe.php</filename>
@@ -36,10 +40,17 @@
 			<folder>sql</folder>
 			<folder>cache</folder>
 			<folder>lib</folder>
+			<folder>views</folder>
+			<folder>language</folder>
 		</files>
+		<languages folder="admin">
+			<language tag="en-GB">language/en-GB/en-GB.com_joomlahaxe.ini</language>
+			<language tag="en-GB">language/en-GB/en-GB.com_joomlahaxe.sys.ini</language>
+		</languages>
 	</administration>
-	<languages>
+    <languages folder="site">
 		<language tag="en-GB">language/en-GB/en-GB.com_joomlahaxe.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.com_joomlahaxe.sys.ini</language>
 	</languages>
 	
 </extension>

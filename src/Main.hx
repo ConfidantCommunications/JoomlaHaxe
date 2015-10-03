@@ -21,8 +21,7 @@ class Main
 		untyped {
 			__call__("require_once", "JoomlahaxeController.class.php");
 		}
-		
-		
+		//Lib.loadLib("lib/JoomlahaxeController.class.php");
 		// Get an instance of the controller prefixed by Joomlahaxe
 		
 		var config;

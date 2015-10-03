@@ -1,9 +1,9 @@
-package ;
+package;
 
 
 import php.Lib;
 @:build(PHP.generateExtern("legacy/controller/legacy.php")) 
-class JControllerLegacy implements Dynamic { } 
+class JControllerLegacy implements Dynamic { }
 
 class JoomlahaxeController extends JControllerLegacy
 {

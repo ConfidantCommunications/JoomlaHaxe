@@ -18,8 +18,8 @@
 
 
 --next
-# Add the admin controls
--cp src
+# Add the admin controls. Must be in admin folder to avoid conflicts when generating duplicate externs
+-cp src/admin
 -main MainAdmin
 --php-front joomlahaxe.php
 -php bin/com_joomlahaxe/admin
@@ -31,7 +31,15 @@
 # -php bin/com_joomlahaxe/site
 
 
-
+--next
+# Add the first Admin View 
+-cp src/admin
+# This class name needs to reflect the folder structure of the Joomla view. Joomlahaxe(component name) + View + Joomlahaxe(folder name of this view)
+# Joomla will 
+-main JoomlahaxeViewJoomlahaxe
+--php-front view.html.php 	
+--php-lib ../../lib
+-php bin/com_joomlahaxe/admin/views/joomlahaxe
 
 
 #Add debug information
@@ -48,6 +56,8 @@
 
 -cmd (perl -pi -e 's/JoomlahaxeViewJoomlahaxe::main\(\);/require_once dirname\(__FILE__\)\."\/..\/..\/lib\/JoomlahaxeViewJoomlahaxe.class.php";/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/site/views/joomlahaxe/view.html.php)
 
+-cmd (perl -pi -e 's/JoomlahaxeViewJoomlahaxe::main\(\);/require_once dirname\(__FILE__\)\."\/..\/..\/lib\/JoomlahaxeViewJoomlahaxe.class.php";/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/admin/views/joomlahaxe/view.html.php)
+
 
 -cmd (perl -pi -e 's/(MainAdmin)/require_once dirname\(__FILE__\)."\/lib\/MainAdmin.class.php";\r\1/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/admin/joomlahaxe.php)
 
@@ -55,14 +65,8 @@
 
 #TODO: automate creation of empty index.html files in every directory
 
-#-cmd (cp -r /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/site/* /Applications/MAMPold/htdocs_artworks/components/com_joomlahaxe/)
+-cmd (cp -r /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/site/* /Applications/MAMPold/htdocs_artworks/components/com_joomlahaxe/)
 
-
-# -cmd (rm -f /Applications/MAMPold/htdocs_artworks/components/com_joomlahaxe/joomlahaxe.php)
-# -cmd (rm -f /Applications/MAMPold/htdocs_artworks/components/com_joomlahaxe/joomlahaxeview.php)
-# -cmd (rm -r -f /Applications/MAMPold/htdocs_artworks/components/com_joomlahaxe/lib/)
-# -cmd (mv -f /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/site/joomlahaxe.php /Applications/MAMPold/htdocs_artworks/components/com_joomlahaxe/joomlahaxe.php)
-# -cmd (mv -f /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/site/joomlahaxeview.php /Applications/MAMPold/htdocs_artworks/components/com_joomlahaxe/joomlahaxeview.php)
-# -cmd (mv -f /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/site/lib /Applications/MAMPold/htdocs_artworks/components/com_joomlahaxe/)
+-cmd (cp -r /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/admin/* /Applications/MAMPold/htdocs_artworks/administrator/components/com_joomlahaxe/)
 
 -cmd (cd /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/ && zip -r com_joomlahaxe.zip com_joomlahaxe)
