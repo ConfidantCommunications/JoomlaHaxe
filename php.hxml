@@ -16,6 +16,16 @@
 --php-lib ../../lib
 -php bin/com_joomlahaxe/site/views/joomlahaxe
 
+--next
+# Add the Model 
+-cp src
+# This class name needs to reflect the folder structure of the Joomla view. Joomlahaxe(component name) + View + Joomlahaxe(folder name of this view)
+# Joomla will 
+-main JoomlahaxeModelJoomlahaxe
+--php-front joomlahaxe.php 	
+--php-lib ../lib
+-php bin/com_joomlahaxe/site/models
+
 
 --next
 # Add the admin controls. Must be in admin folder to avoid conflicts when generating duplicate externs
@@ -58,6 +68,7 @@
 
 -cmd (perl -pi -e 's/JoomlahaxeViewJoomlahaxe::main\(\);/require_once dirname\(__FILE__\)\."\/..\/..\/lib\/JoomlahaxeViewJoomlahaxe.class.php";/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/admin/views/joomlahaxe/view.html.php)
 
+-cmd (perl -pi -e 's/JoomlahaxeModelJoomlahaxe::main\(\);/require_once dirname\(__FILE__\)\."\/..\/lib\/JoomlahaxeModelJoomlahaxe.class.php";/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/site/models/joomlahaxe.php)
 
 -cmd (perl -pi -e 's/(MainAdmin)/require_once dirname\(__FILE__\)."\/lib\/MainAdmin.class.php";\r\1/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/admin/joomlahaxe.php)
 

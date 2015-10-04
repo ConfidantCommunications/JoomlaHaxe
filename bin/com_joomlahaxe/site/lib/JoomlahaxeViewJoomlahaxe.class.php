@@ -10,7 +10,7 @@ class JoomlahaxeViewJoomlahaxe extends JViewLegacy {
 	}}
 	public $msg;
 	public function display($tpl = null) {
-		$this->msg = "Hello World";
+		$this->msg = $this->get("Msg", null);
 		return parent::display($tpl);
 	}
 	public function __call($m, $a) {

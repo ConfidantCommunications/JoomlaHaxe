@@ -28,12 +28,11 @@ class JoomlahaxeViewJoomlahaxe extends JViewLegacy
 	override public function display(?tpl:Dynamic) 
 		{
 			// Assign data to the view
-			msg = 'Hello World';
+			//msg = 'Hello World';
 
-			// Display the view
-// 			untyped{
-// 				__call__("parent::display","$tpl");
-// 			}
+			//Note: $this->get() is a member of JView::get which is a proxy to get* methods of the default model where * is populated with the value of the first parameter passed to get()
+			
+			msg = get('Msg');
 			
 			//here tpl is a string which determines which view to use.
 			//Joomla will load default.php but if tpl=="sausage" then Joomla will display default_sausage.php
