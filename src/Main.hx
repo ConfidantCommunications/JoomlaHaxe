@@ -2,8 +2,11 @@ package ;
 
 
 import php.Lib;
-import joomla.JApplicationCms;
+//import joomla.JApplicationCms;
 import JoomlahaxeController;
+
+@:build(PHP.generateExtern("cms/application/cms.php")) 
+class JApplicationCms implements Dynamic { }
 
 class Main
 {
@@ -16,7 +19,7 @@ class Main
 	}
     public function new()
     {
-        Lib.println('Haxe is great!');
+        Lib.print ('Haxe is great!');
 		untyped __call__("defined('_JEXEC') or die","no joomla here");
 		untyped {
 			__call__("require_once", "JoomlahaxeController.class.php");

@@ -5,9 +5,5 @@ class php_Lib {
 	static function hprint($v) {
 		echo(Std::string($v));
 	}
-	static function println($v) {
-		php_Lib::hprint($v);
-		php_Lib::hprint("\x0A");
-	}
 	function __toString() { return 'php.Lib'; }
 }

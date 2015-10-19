@@ -3,7 +3,7 @@
 class Main {
 	public function __construct() {
 		if(!php_Boot::$skip_constructor) {
-		php_Lib::println("Haxe is great!");
+		php_Lib::hprint("Haxe is great!");
 		defined('_JEXEC') or die("no joomla here");
 		require_once("JoomlahaxeController.class.php");
 		$config = null;
