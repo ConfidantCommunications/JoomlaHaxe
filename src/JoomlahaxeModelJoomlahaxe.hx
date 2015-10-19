@@ -15,7 +15,7 @@ class JModelLegacy implements Dynamic { }
 @:build(PHP.generateExtern("joomla/database/query/mysqli.php")) 
 class JDatabaseQueryMysqli implements Dynamic { }
 
-
+//this macro creates a class field which conflicts with the above one
 //@:build(PHP.generateExtern("joomla/database/driver/mysqli.php")) 
 //class JDatabaseDriverMysqli implements Dynamic { }
 
@@ -62,23 +62,28 @@ class JoomlahaxeModelJoomlahaxe extends JModelLegacy
 			var db = untyped __call__('JFactory::getDbo'); //creates a JDatabaseDriverMysqli Object
 
 			// Create a new query object.
-			//query=new JDatabaseQueryMysqli();
 			var query = db.getQuery(true);
-
-			//query=untyped __call__("$this->db->getQuery","true"); 
-
-			 //var a=untyped __call__("Array","['id', 'name', 'details', 'enabled']");
 
 
 			// Select all records from the user profile table where key begins with "custom.".
 			// Order it by the ordering field.
 			var a=db.quoteName(['id', 'name', 'details', 'enabled']);
 			query.select(a);
-			untyped __php__("$query->from($db->quoteName('#__joomlahaxe'));");
-			//query.from(db.quoteName('#__joomlahaxe'));
-			// untyped __php__("$query->where($db->quoteName('name').' LIKE '.$db->quote('%example%'));");
-			//query.where(db.quoteName('name') + ' LIKE '+ db.quote('\'example.%\''));
-			//query.order('ordering ASC');
+			
+			
+			//untyped __php__("$query->from($db->quoteName('#__joomlahaxe'));");
+			//untyped __php__("print_r($db->quoteName('#__joomlahaxe'))");
+			
+			query.from('#__joomlahaxe');  //also works as '`#__joomlahaxe`'
+			//db.quoteName('#__joomlahaxe') doesn't work
+			
+			
+			query.where('`name`' + ' LIKE '+ '\'%example%\'');
+			
+			//untyped __php__("print_r($query->__toString())");
+			
+			
+			query.order('\'ordering ASC\'');
 
 			// Reset the query using our newly populated query object.
 			db.setQuery(query);
