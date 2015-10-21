@@ -5,17 +5,13 @@ import php.Lib;
 //import sys.db.Connection;
 //import Entry;
 
-@:build(PHP.generateExtern("legacy/model/legacy.php")) 
+@:build(PHP.generateExtern("legacy/model/legacy.php",null,"/Applications/MAMPold/htdocs_artworks/libraries/","/Users/allan/Documents/haXe/JoomlaHaxeTest/src/libraries/")) 
 class JModelLegacy implements Dynamic { }
 
-//this class had to be hand-edited at line 31/74 after generating the extern, so it is now disabled here
-//@:build(PHP.generateExtern("joomla/factory.php")) 
-//class JFactory implements Dynamic { }
-
-@:build(PHP.generateExtern("joomla/database/query/mysqli.php")) 
+@:build(PHP.generateExtern("joomla/database/query/mysqli.php",null,"/Applications/MAMPold/htdocs_artworks/libraries/","/Users/allan/Documents/haXe/JoomlaHaxeTest/src/libraries/")) 
 class JDatabaseQueryMysqli implements Dynamic { }
 
-//this macro creates a class field which conflicts with the above one
+//this macro creates a class field which conflicts with the above one, so I'm not using it
 //@:build(PHP.generateExtern("joomla/database/driver/mysqli.php")) 
 //class JDatabaseDriverMysqli implements Dynamic { }
 
@@ -23,7 +19,7 @@ class JDatabaseQueryMysqli implements Dynamic { }
 class JoomlahaxeModelJoomlahaxe extends JModelLegacy
 {
 	var msg:String;
-	//var db:JDatabaseDriverMysqli;
+	//var db:JDatabaseDriverMysqli; not used; see macro note above
 	//var query:JDatabaseQueryMysqli;
 	var results:Array<Dynamic>;
 	public static function main () {
@@ -40,9 +36,6 @@ class JoomlahaxeModelJoomlahaxe extends JModelLegacy
 		}
 		super(config);
 		untyped __call__("defined('_JEXEC') or die","no joomla here");
-		//untyped {
-			//__call__("require_once", "JFactory.class.php"); //remedies having to hand-edit the extern
-		//}
 
 		
 	}
@@ -58,7 +51,8 @@ class JoomlahaxeModelJoomlahaxe extends JModelLegacy
 		
 
 			
-			//this example from https://docs.joomla.org/Selecting_data_using_JDatabase
+			//read more at https://docs.joomla.org/Selecting_data_using_JDatabase
+			//I didn't make an extern for JFactory because it was requiring some hand-editing at lines 31 & 74
 			var db = untyped __call__('JFactory::getDbo'); //creates a JDatabaseDriverMysqli Object
 
 			// Create a new query object.
@@ -78,8 +72,9 @@ class JoomlahaxeModelJoomlahaxe extends JModelLegacy
 			//db.quoteName('#__joomlahaxe') doesn't work
 			
 			
-			query.where('`name`' + ' LIKE '+ '\'%example%\'');
+			query.where('`name` LIKE "%example%"');
 			
+			//want to see the raw query?
 			//untyped __php__("print_r($query->__toString())");
 			
 			

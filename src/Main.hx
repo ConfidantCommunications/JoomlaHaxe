@@ -1,15 +1,32 @@
 package ;
 
 
-import php.Lib;
-//import joomla.JApplicationCms;
-import JoomlahaxeController;
 
-@:build(PHP.generateExtern("cms/application/cms.php")) 
+/*
+	This macro below is derived from https://gist.github.com/gamedevsam/a53263ef7ff9de6da5c3 by Samuel Batista; big thanks!
+	You will note that I have copied the Joomla files (version 3.4.4) into the "libraries" folder; you may wish to update that or
+	make a symlink to your live site. 
+
+*/
+#if !macro
+import JoomlahaxeController;
+import php.Lib;
+#end
+	
+import haxe.rtti.Meta;
+
+@:build(PHP.generateExtern("cms/application/cms.php",null,"/Applications/MAMPold/htdocs_artworks/libraries/","/Users/allan/Documents/haXe/JoomlaHaxeTest/src/libraries/")) 
 class JApplicationCms implements Dynamic { }
+
+
+
 
 class Main
 {
+	//change these to suit your needs. They are accessed by the "PHP" macro Class.
+	@libdirLive("/Applications/MAMPold/htdocs_artworks/libraries/")
+	@libdirLocal("/Users/allan/Documents/haXe/JoomlaHaxeTest/src/libraries/")
+	
 	var input:JApplicationCms;
 	var gc:JoomlahaxeController;
 	public static function main () {
@@ -19,7 +36,7 @@ class Main
 	}
     public function new()
     {
-        Lib.print ('Haxe is great!');
+        //Lib.print ('Haxe is great!');
 		untyped __call__("defined('_JEXEC') or die","no joomla here");
 		untyped {
 			__call__("require_once", "JoomlahaxeController.class.php");

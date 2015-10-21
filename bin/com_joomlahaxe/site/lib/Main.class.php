@@ -3,7 +3,6 @@
 class Main {
 	public function __construct() {
 		if(!php_Boot::$skip_constructor) {
-		php_Lib::hprint("Haxe is great!");
 		defined('_JEXEC') or die("no joomla here");
 		require_once("JoomlahaxeController.class.php");
 		$config = null;
@@ -25,8 +24,11 @@ class Main {
 		else
 			throw new HException('Unable to call <'.$m.'>');
 	}
+	static function __meta__() { $args = func_get_args(); return call_user_func_array(self::$__meta__, $args); }
+	static $__meta__;
 	static function main() {
 		new Main();
 	}
 	function __toString() { return 'Main'; }
 }
+Main::$__meta__ = _hx_anonymous(array("fields" => _hx_anonymous(array("input" => _hx_anonymous(array("libdirLive" => (new _hx_array(array("/Applications/MAMPold/htdocs_artworks/libraries/"))), "libdirLocal" => (new _hx_array(array("/Users/allan/Documents/haXe/JoomlaHaxeTest/src/libraries/")))))))));

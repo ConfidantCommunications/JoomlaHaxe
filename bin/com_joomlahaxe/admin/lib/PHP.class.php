@@ -13,7 +13,7 @@ class PHP {
 		$__hx__spos = $GLOBALS['%s']->length;
 		if(!property_exists("GLOBALS", "firephp")) {
 			ob_start();
-			require_once '/Applications/MAMPold/htdocs_artworks/libraries/FirePHPCore/FirePHP.class.php';
+			require_once '/libFirePHPCore/FirePHP.class.php';
 			$GLOBALS['firephp'] = FirePHP::getInstance(true);
 		}
 		$GLOBALS["firephp"]->log("[PHP] " . _hx_string_or_null($message));
@@ -59,7 +59,7 @@ class PHP {
 			$_g = $args->length;
 			while($_g1 < $_g) {
 				$i = $_g1++;
-				$result->push(_hx_anonymous(array("expr" => haxe_macro_ExprDef::EConst(haxe_macro_Constant::CIdent($args[$i])), "pos" => _hx_anonymous(array("file" => "src/admin/PHP.hx", "min" => 8163, "max" => 8172)))));
+				$result->push(_hx_anonymous(array("expr" => haxe_macro_ExprDef::EConst(haxe_macro_Constant::CIdent($args[$i])), "pos" => _hx_anonymous(array("file" => "src/admin/PHP.hx", "min" => 8269, "max" => 8278)))));
 				unset($i);
 			}
 		}

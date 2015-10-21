@@ -2,7 +2,7 @@ package ;
 
 
 import php.Lib;
-@:build(PHP.generateExtern("legacy/view/legacy.php")) 
+@:build(PHP.generateExtern("legacy/view/legacy.php",null,"/Applications/MAMPold/htdocs_artworks/libraries/","/Users/allan/Documents/haXe/JoomlaHaxeTest/src/libraries/")) 
 class JViewLegacy implements Dynamic { }
 
 class JoomlahaxeViewJoomlahaxe extends JViewLegacy

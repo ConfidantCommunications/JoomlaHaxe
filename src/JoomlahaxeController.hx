@@ -1,8 +1,11 @@
 package ;
 
-
+#if !macro
 import php.Lib;
-@:build(PHP.generateExtern("legacy/controller/legacy.php")) 
+
+@:build(PHP.generateExtern("legacy/controller/legacy.php",null,"/Applications/MAMPold/htdocs_artworks/libraries/","/Users/allan/Documents/haXe/JoomlaHaxeTest/src/libraries/")) 
+#end
+	
 class JControllerLegacy implements Dynamic { } 
 
 class JoomlahaxeController extends JControllerLegacy
@@ -21,7 +24,9 @@ class JoomlahaxeController extends JControllerLegacy
 			__call__("Array","[\"name\":\"Joomlahaxe\"]");
 			
 		}
+		#if !macro
 		super(config);
+		#end
 		untyped __call__("defined('_JEXEC') or die");
 		untyped {
 			//__call__("jimport", "joomla.application.component.controller");

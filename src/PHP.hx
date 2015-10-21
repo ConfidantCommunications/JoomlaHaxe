@@ -5,10 +5,12 @@ import haxe.PosInfos;
 import haxe.macro.Expr;
 import haxe.macro.ExprTools;
 import haxe.macro.Context;
+//import haxe.rtti.Meta;
 
 /**
  * Utility class with functions that make it easier to write PHP code in Haxe
- * @author Sam
+ * @author Samuel Batista (https://gist.github.com/gamedevsam/a53263ef7ff9de6da5c3)
+ * Lines 40 and 75 must be customised for your environment
  */
 class PHP
 {	
@@ -36,7 +38,7 @@ class PHP
 	}
 	
 	// Adds a require_once call that includes a file (path is relative to the current file)
-	macro public static function include(e:ExprOf<String>, ?libDir:String = "/Applications/MAMPold/htdocs_artworks/libraries/") {
+	macro public static function include(e:ExprOf<String>, ?libDir:String = "/lib") {
 		var fileName:String = ExprTools.getValue(e);
 		return macro untyped __php__('require_once \'$libDir$fileName\'');
 	}
@@ -71,10 +73,9 @@ class PHP
 	// example usage:
 	// 		@:build(PHP.generateClass("etrade_sdk/Accounts/etAccounts.class.php"))
 	//		class Accounts {}
-	macro static public function generateExtern(filePath:String, ?className:String, ?libDir:String = "/Users/allan/Documents/haXe/JoomlaHaxeTest/src/libraries/"):Array<Field> {
-		
+	macro static public function generateExtern(filePath:String, ?className:String, ?libDirLive:String = "/lib", ?libDirLocal:String = "/lib"):Array<Field> {
 		var fields = Context.getBuildFields();
-		var fileData = File.getContent(libDir + filePath);
+		var fileData = File.getContent(libDirLocal + filePath);
 		
 		// generate class name from file path
 		if (className == null) {
@@ -91,7 +92,7 @@ class PHP
 			doc: null,
 			meta: [],
 			access: [APublic, AStatic],
-			kind: FFun({args: [], params: [], ret: null, expr: macro PHP.include('$filePath')}),
+			kind: FFun({args: [], params: [], ret: null, expr: macro PHP.include('$filePath','$libDirLive')}),
 			pos: Context.currentPos()
 		});
 		
