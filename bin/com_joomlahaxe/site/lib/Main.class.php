@@ -12,6 +12,8 @@ class Main {
 		$this->gc->execute($task);
 		$this->gc->redirect();
 	}}
+	public $ld1;
+	public $ld2;
 	public $input;
 	public $gc;
 	public function __call($m, $a) {
@@ -31,4 +33,4 @@ class Main {
 	}
 	function __toString() { return 'Main'; }
 }
-Main::$__meta__ = _hx_anonymous(array("fields" => _hx_anonymous(array("input" => _hx_anonymous(array("libdirLive" => (new _hx_array(array("/Applications/MAMPold/htdocs_artworks/libraries/"))), "libdirLocal" => (new _hx_array(array("/Users/allan/Documents/haXe/JoomlaHaxeTest/src/libraries/")))))))));
+Main::$__meta__ = _hx_anonymous(array("fields" => _hx_anonymous(array("ld1" => _hx_anonymous(array("libdirLive" => (new _hx_array(array("/Applications/MAMPold/htdocs_artworks/libraries/"))))), "ld2" => _hx_anonymous(array("libdirLocal" => (new _hx_array(array("/Users/allan/Documents/haXe/JoomlaHaxeTest/src/libraries/")))))))));

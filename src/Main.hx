@@ -8,14 +8,18 @@ package ;
 	make a symlink to your live site. 
 
 */
-#if !macro
+
+
 import JoomlahaxeController;
 import php.Lib;
-#end
-	
-import haxe.rtti.Meta;
 
-@:build(PHP.generateExtern("cms/application/cms.php",null,"/Applications/MAMPold/htdocs_artworks/libraries/","/Users/allan/Documents/haXe/JoomlaHaxeTest/src/libraries/")) 
+	
+
+
+
+@:build(
+	PHP.generateExtern("cms/application/cms.php")
+) 
 class JApplicationCms implements Dynamic { }
 
 
@@ -23,10 +27,13 @@ class JApplicationCms implements Dynamic { }
 
 class Main
 {
-	//change these to suit your needs. They are accessed by the "PHP" macro Class.
-	@libdirLive("/Applications/MAMPold/htdocs_artworks/libraries/")
-	@libdirLocal("/Users/allan/Documents/haXe/JoomlaHaxeTest/src/libraries/")
 	
+	//change these to suit your needs. They are accessed by the "PHP" macro Class.
+	@libdirLive("/Applications/MAMPold/htdocs_artworks/libraries/") var ld1:String;
+	@libdirLocal("/Users/allan/Documents/haXe/JoomlaHaxeTest/src/libraries/") var ld2:String;
+	
+	
+
 	var input:JApplicationCms;
 	var gc:JoomlahaxeController;
 	public static function main () {
@@ -34,6 +41,7 @@ class Main
 		new Main ();
 		
 	}
+	
     public function new()
     {
         //Lib.print ('Haxe is great!');
@@ -59,3 +67,5 @@ class Main
 	
 	
 }
+
+	

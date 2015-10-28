@@ -5,10 +5,10 @@ import php.Lib;
 //import sys.db.Connection;
 //import Entry;
 
-@:build(PHP.generateExtern("legacy/model/legacy.php",null,"/Applications/MAMPold/htdocs_artworks/libraries/","/Users/allan/Documents/haXe/JoomlaHaxeTest/src/libraries/")) 
+@:build(PHP.generateExtern("legacy/model/legacy.php")) 
 class JModelLegacy implements Dynamic { }
 
-@:build(PHP.generateExtern("joomla/database/query/mysqli.php",null,"/Applications/MAMPold/htdocs_artworks/libraries/","/Users/allan/Documents/haXe/JoomlaHaxeTest/src/libraries/")) 
+@:build(PHP.generateExtern("joomla/database/query/mysqli.php")) 
 class JDatabaseQueryMysqli implements Dynamic { }
 
 //this macro creates a class field which conflicts with the above one, so I'm not using it

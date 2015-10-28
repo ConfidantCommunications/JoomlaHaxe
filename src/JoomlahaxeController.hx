@@ -3,7 +3,7 @@ package ;
 #if !macro
 import php.Lib;
 
-@:build(PHP.generateExtern("legacy/controller/legacy.php",null,"/Applications/MAMPold/htdocs_artworks/libraries/","/Users/allan/Documents/haXe/JoomlaHaxeTest/src/libraries/")) 
+@:build(PHP.generateExtern("legacy/controller/legacy.php")) 
 #end
 	
 class JControllerLegacy implements Dynamic { } 

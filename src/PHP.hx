@@ -5,8 +5,7 @@ import haxe.PosInfos;
 import haxe.macro.Expr;
 import haxe.macro.ExprTools;
 import haxe.macro.Context;
-//import haxe.rtti.Meta;
-
+import haxe.macro.Type;
 /**
  * Utility class with functions that make it easier to write PHP code in Haxe
  * @author Samuel Batista (https://gist.github.com/gamedevsam/a53263ef7ff9de6da5c3)
@@ -74,8 +73,45 @@ class PHP
 	// 		@:build(PHP.generateClass("etrade_sdk/Accounts/etAccounts.class.php"))
 	//		class Accounts {}
 	macro static public function generateExtern(filePath:String, ?className:String, ?libDirLive:String = "/lib", ?libDirLocal:String = "/lib"):Array<Field> {
+		//get the file path metadata from the Main Class:
+		switch Context.getType("Main") {
+			case TInst(ref, params):
+				var cl:ClassType = ref.get();
+				//trace(cl.meta.get());//traces the metadata of the class
+				for (field in cl.fields.get()) {
+					var m=field.meta.get();//get the metadata of each field   
+					if (m.length>0 && m[0].name=="libdirLive")
+					{
+						var e=m[0].params[0].expr;
+						switch e {
+							case EConst(CString(mystring)):
+								trace('The variable name is: '+mystring);
+								libDirLive=mystring;
+							default:
+						}
+					}
+					
+						if (m.length>0 && m[0].name=="libdirLocal")
+					{
+						var e=m[0].params[0].expr;
+						switch e {
+							case EConst(CString(mystring)):
+								trace('The variable name is: '+mystring);
+								libDirLocal=mystring;
+							default:
+						}
+					}
+				}
+			default:
+		} 
+		
 		var fields = Context.getBuildFields();
 		var fileData = File.getContent(libDirLocal + filePath);
+		
+		
+		
+		
+		//trace (haxe.macro.Context.getType("Main"));
 		
 		// generate class name from file path
 		if (className == null) {

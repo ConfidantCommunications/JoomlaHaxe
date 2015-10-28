@@ -4,7 +4,7 @@
 -main Main
 --php-front joomlahaxe.php
 -php bin/com_joomlahaxe/site
-
+-debug
 
 --next
 # Add the View 
@@ -54,12 +54,7 @@
 
 #Add debug information
 -debug
-
-#dead code elimination : remove unused code
-#"-dce no" : do not remove unused code
-#"-dce std" : remove unused code in the std lib (default)
-#"-dce full" : remove all unused code
-#-dce full
+-dce full
 
 
 #TODO: make it use ant to package: https://docs.joomla.org/Building_Joomla_Extensions_with_Apache_Ant
