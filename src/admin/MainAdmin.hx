@@ -7,7 +7,9 @@ import JoomlahaxeController;
 
 class MainAdmin
 {
-	//var input:JApplicationCms;
+	@libdirLive("/Applications/MAMPold/htdocs_artworks/libraries/") var ld1:String;
+	@libdirLocal("/Users/allan/Documents/haXe/JoomlaHaxeTest/src/libraries/") var ld2:String;
+	
 	var gc:JoomlahaxeController;
 	public static function main () {
 		

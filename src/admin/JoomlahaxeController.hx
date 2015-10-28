@@ -2,7 +2,7 @@ package;
 
 
 import php.Lib;
-@:build(PHP.generateExtern("legacy/controller/legacy.php",null,"/Applications/MAMPold/htdocs_artworks/libraries/","/Users/allan/Documents/haXe/JoomlaHaxeTest/src/libraries/")) 
+@:build(PHP.generateExtern("legacy/controller/legacy.php")) 
 class JControllerLegacy implements Dynamic { }
 
 class JoomlahaxeController extends JControllerLegacy
