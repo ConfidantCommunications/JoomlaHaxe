@@ -53,7 +53,7 @@
             ,"foldedRegions" : [
 
             ]
-            ,"activeLine" : 85
+            ,"activeLine" : 69
         }
         ,{
              "path" : "src/admin/JoomlahaxeController.hx"
@@ -62,25 +62,7 @@
             ,"foldedRegions" : [
 
             ]
-            ,"activeLine" : 37
-        }
-        ,{
-             "path" : "src/JoomlahaxeController.hx"
-            ,"useTabs" : true
-            ,"indentSize" : 4
-            ,"foldedRegions" : [
-
-            ]
-            ,"activeLine" : 33
-        }
-        ,{
-             "path" : "src/Main.hx"
-            ,"useTabs" : true
-            ,"indentSize" : 4
-            ,"foldedRegions" : [
-
-            ]
-            ,"activeLine" : 9
+            ,"activeLine" : 16
         }
         ,{
              "path" : "src/admin/JoomlahaxeViewJoomlahaxedefaultadmin.hx"
@@ -98,7 +80,16 @@
             ,"foldedRegions" : [
 
             ]
-            ,"activeLine" : 41
+            ,"activeLine" : 20
+        }
+        ,{
+             "path" : "src/admin/MainAdmin.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 37
         }
         ,{
              "path" : "src/admin/JoomlahaxeViewJoomlahaxe.hx"
@@ -107,10 +98,10 @@
             ,"foldedRegions" : [
 
             ]
-            ,"activeLine" : 42
+            ,"activeLine" : 13
         }
     ]
-    ,"activeFile" : "src/admin/JoomlahaxeViewJoomlahaxe.hx"
+    ,"activeFile" : "src/admin/JoomlahaxeController.hx"
     ,"openFLTarget" : null
     ,"openFLBuildMode" : "Debug"
     ,"runActionType" : null

@@ -7,9 +7,12 @@ defined('_JEXEC') or die('Restricted Access');
 		<?php echo 'Heading'; ?>
 	</th>
 	<th width="20">
-		<input type="checkbox" name="toggle" value="" onclick="checkAll(<?php echo count($this->items); ?>);" />
+		<input type="checkbox" name="toggle" value="" onclick="Joomla.checkAll(this);" />
 	</th>			
 	<th>
-		<?php echo JText::_('COM_JOOMLAHAXE_JOOMLAHAXE_VIEW_DEFAULT_ADMINWELCOME'); ?>
+		Description
+	</th>		
+	<th>
+		Enabled
 	</th>
 </tr>

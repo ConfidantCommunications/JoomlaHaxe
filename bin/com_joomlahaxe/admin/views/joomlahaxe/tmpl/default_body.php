@@ -9,9 +9,14 @@ defined('_JEXEC') or die('Restricted Access');
 		</td>
 		<td>
 			<?php echo JHtml::_('grid.id', $i, $item->id); ?>
+			
 		</td>
 		<td>
+			
 			<?php echo $item->details; ?>
+		</td>
+		<td>
+			
 			<?php echo $item->enabled; ?>
 		</td>
 	</tr>

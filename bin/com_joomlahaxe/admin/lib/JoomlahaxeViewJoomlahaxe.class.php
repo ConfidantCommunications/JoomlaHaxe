@@ -15,8 +15,15 @@ class JoomlahaxeViewJoomlahaxe extends JViewLegacy {
 		}
 		$this->items = $i;
 		$this->pagination = $p;
+		$this->addToolBar();
 		parent::display($tpl);
 		return null;
+	}
+	public function addToolBar() {
+		JToolbarHelper::title(JText::_('COM_JOOMLAHAXE_JOOMLAHAXE_VIEW_DEFAULT_TITLE'), null);
+		JToolbarHelper::deleteList("", "joomlahaxe.delete", null);
+		JToolbarHelper::editList("jhaxe.edit", null);
+		JToolbarHelper::addNew("jhaxe.add", null, null);
 	}
 	static function main() {
 		new JoomlahaxeViewJoomlahaxe();
