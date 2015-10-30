@@ -13,7 +13,10 @@ class MainAdmin {
 			$tmp;
 			return;
 		}
-		require_once("JoomlahaxeController.class.php");
+		{
+			require_once("JoomlahaxeController.class.php");
+			require_once("JControllerLegacy.class.php");
+		}
 		$config = null;
 		$config = Array("[\"name\":\"Joomlahaxe\"]");
 		$this->gc = new JoomlahaxeController($config);

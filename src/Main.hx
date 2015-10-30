@@ -1,6 +1,6 @@
 package ;
 
-
+//https://docs.joomla.org/J2.5:Developing_a_MVC_Component  //refer to the menu in the right column for various topics
 
 /*
 	This macro below is derived from https://gist.github.com/gamedevsam/a53263ef7ff9de6da5c3 by Samuel Batista; big thanks!
@@ -12,10 +12,6 @@ package ;
 
 import JoomlahaxeController;
 import php.Lib;
-
-	
-
-
 
 @:build(
 	PHP.generateExtern("cms/application/cms.php")

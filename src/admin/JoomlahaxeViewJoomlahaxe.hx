@@ -7,7 +7,6 @@ class JViewLegacy implements Dynamic { }
 
 class JoomlahaxeViewJoomlahaxe extends JViewLegacy
 {
-	var msg:String;
 	public static function main () {
 		
 		new JoomlahaxeViewJoomlahaxe ();
@@ -21,25 +20,29 @@ class JoomlahaxeViewJoomlahaxe extends JViewLegacy
 			
 		}
 		super(config);
-		untyped {
-			__call__("defined('_JEXEC') or die","no joomla here");
-		}
+		untyped __call__("defined('_JEXEC') or die","no joomla here");
 		
 	}
 	override public function display(?tpl:Dynamic) 
 		{
+			// Get data from the model
+			var i = get('Items');
+			var p = get('Pagination');
+			
+			// Check for errors.
+			var errors = get('Errors');
+			if (errors!=null) 
+			{
+				//untyped __php__("JError::raiseError(500, implode('<br />', $errors));");
+				//return false;
+			}
 			// Assign data to the view
-			msg = 'Hello World';
+			this.items = i;
+			this.pagination = p;
 
-			// Display the view
-// 			untyped{
-// 				__call__("parent::display","$tpl");
-// 			}
-			
-			//here tpl is a string which determines which view to use.
-			//Joomla will load default.php but if tpl=="sausage" then Joomla will display default_sausage.php
-			return super.display(tpl);
-			
+			// Display the template
+			super.display(tpl);
+			return null;
 		}
 	
 	

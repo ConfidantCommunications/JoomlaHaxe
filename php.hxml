@@ -1,13 +1,14 @@
 #integrate files to classpath
 -cp src
 
+# Site Component
 -main Main
 --php-front joomlahaxe.php
 -php bin/com_joomlahaxe/site
 -debug
 
 --next
-# Add the View 
+# Add the Site View 
 -cp src
 # This class name needs to reflect the folder structure of the Joomla view. Joomlahaxe(component name) + View + Joomlahaxe(folder name of this view)
 # Joomla will 
@@ -17,10 +18,9 @@
 -php bin/com_joomlahaxe/site/views/joomlahaxe
 
 --next
-# Add the Model 
+# Add the Site Model 
 -cp src
-# This class name needs to reflect the folder structure of the Joomla view. Joomlahaxe(component name) + View + Joomlahaxe(folder name of this view)
-# Joomla will 
+# This class name needs to reflect the folder structure of the Joomla model. Joomlahaxe(component name) + Model + Joomlahaxe(folder name of this view)
 -main JoomlahaxeModelJoomlahaxe
 --php-front joomlahaxe.php 	
 --php-lib ../lib
@@ -34,13 +34,6 @@
 --php-front joomlahaxe.php
 -php bin/com_joomlahaxe/admin
 
-# --next
-# -cp src
-# -main JoomlahaxeController
-# --php-front controller.php
-# -php bin/com_joomlahaxe/site
-
-
 --next
 # Add the first Admin View 
 -cp src/admin
@@ -51,28 +44,47 @@
 --php-lib ../../lib
 -php bin/com_joomlahaxe/admin/views/joomlahaxe
 
+--next
+# Add the Admin Model 
+-cp src/admin
+# This class name needs to reflect the folder structure of the Joomla model. Joomlahaxe(component name) + Model + Joomlahaxe(folder name of this view)
+-main JoomlahaxeModelJoomlahaxe
+--php-front joomlahaxe.php 	
+--php-lib ../lib
+-php bin/com_joomlahaxe/admin/models
+
 
 #Add debug information
 -debug
--dce full
+#-dce full -- can't use this because Haxe can't detect some functions which the Joomla framework will call
 
 
 #TODO: make it use ant to package: https://docs.joomla.org/Building_Joomla_Extensions_with_Apache_Ant
 
+#search/replace code in site folder:
 -cmd (perl -pi -e 's/JoomlahaxeViewJoomlahaxe::main\(\);/require_once dirname\(__FILE__\)\."\/..\/..\/lib\/JoomlahaxeViewJoomlahaxe.class.php";/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/site/views/joomlahaxe/view.html.php)
-
--cmd (perl -pi -e 's/JoomlahaxeViewJoomlahaxe::main\(\);/require_once dirname\(__FILE__\)\."\/..\/..\/lib\/JoomlahaxeViewJoomlahaxe.class.php";/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/admin/views/joomlahaxe/view.html.php)
 
 -cmd (perl -pi -e 's/JoomlahaxeModelJoomlahaxe::main\(\);/require_once dirname\(__FILE__\)\."\/..\/lib\/JoomlahaxeModelJoomlahaxe.class.php";/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/site/models/joomlahaxe.php)
 
+#search/replace code in admin folder:
+-cmd (perl -pi -e 's/JoomlahaxeViewJoomlahaxe::main\(\);/require_once dirname\(__FILE__\)\."\/..\/..\/lib\/JoomlahaxeViewJoomlahaxe.class.php";/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/admin/views/joomlahaxe/view.html.php)
+
+-cmd (perl -pi -e 's/JoomlahaxeModelJoomlahaxe::main\(\);/require_once dirname\(__FILE__\)\."\/..\/lib\/JoomlahaxeModelJoomlahaxe.class.php";/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/admin/models/joomlahaxe.php)
+
 -cmd (perl -pi -e 's/(MainAdmin)/require_once dirname\(__FILE__\)."\/lib\/MainAdmin.class.php";\r\1/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/admin/joomlahaxe.php)
 
+#remove .DS_Store files on Mac computers
 -cmd (find . -name '.DS_Store' -print0 | xargs -t0 rm)
 
 #TODO: automate creation of empty index.html files in every directory
 
+
+#Optional: auto-copy the compiled component to the live site.
 -cmd (cp -r /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/site/* /Applications/MAMPold/htdocs_artworks/components/com_joomlahaxe/)
-
 -cmd (cp -r /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/admin/* /Applications/MAMPold/htdocs_artworks/administrator/components/com_joomlahaxe/)
+-cmd (cp -r /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/site/language/en-GB/* /Applications/MAMPold/htdocs_artworks/language/en-GB/)
+-cmd (cp -r /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/admin/language/en-GB/* /Applications/MAMPold/htdocs_artworks/administrator/language/en-GB/)
 
+
+#Optional: make a zip file which can be used with Joomla's installer
 -cmd (cd /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/ && zip -r com_joomlahaxe.zip com_joomlahaxe)

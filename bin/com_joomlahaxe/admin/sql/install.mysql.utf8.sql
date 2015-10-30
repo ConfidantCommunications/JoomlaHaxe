@@ -7,13 +7,18 @@ CREATE TABLE IF NOT EXISTS `#__joomlahaxe` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 
-INSERT INTO `#__joomlahaxe` (`id`, `name`, `details`, `enabled`) VALUES
-(1, 'Example', 'Enter your long description text in this field.', 1);
-
-
 ALTER TABLE `#__joomlahaxe`
   ADD PRIMARY KEY (`id`);
 
 
 ALTER TABLE `#__joomlahaxe`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+
+
+INSERT INTO `#__joomlahaxe` (`id`, `name`, `details`, `enabled`) VALUES
+(1, 'Example', 'Enter your long description text in this field.', 1);
+
+
+INSERT INTO `#__joomlahaxe` (`id`, `name`, `details`, `enabled`) VALUES
+(2, 'Example2', 'Enter your longer description text in this field.', 1);
+

@@ -1,14 +1,15 @@
 <?php
-/**
- * @package     Joomla.Administrator
- * @subpackage  com_joomlaupdate
- *
- * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE.txt
- */
-
-defined('_JEXEC') or die;
-
-//$params           = JComponentHelper::getParams('com_joomlaupdate');
-
-echo JText::_('COM_JOOMLAHAXE_JOOMLAHAXE_VIEW_DEFAULT_ADMINWELCOME'); 
+// No direct access to this file
+defined('_JEXEC') or die('Restricted Access');
+ 
+// load tooltip behavior
+JHtml::_('behavior.tooltip');
+?>
+<h1>JoomlaHaxe Admin</h1>
+<form action="<?php echo JRoute::_('index.php?option=com_joomlahaxe'); ?>" method="post" name="adminForm">
+	<table class="adminlist">
+		<thead><?php echo $this->loadTemplate('head');?></thead>
+		<tfoot><?php echo $this->loadTemplate('foot');?></tfoot>
+		<tbody><?php echo $this->loadTemplate('body');?></tbody>
+	</table>
+</form>

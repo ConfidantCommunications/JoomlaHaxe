@@ -85,7 +85,7 @@ class PHP
 						var e=m[0].params[0].expr;
 						switch e {
 							case EConst(CString(mystring)):
-								trace('The variable name is: '+mystring);
+								//trace('The variable name is: '+mystring);
 								libDirLive=mystring;
 							default:
 						}
@@ -96,7 +96,7 @@ class PHP
 						var e=m[0].params[0].expr;
 						switch e {
 							case EConst(CString(mystring)):
-								trace('The variable name is: '+mystring);
+								//trace('The variable name is: '+mystring);
 								libDirLocal=mystring;
 							default:
 						}

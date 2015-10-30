@@ -46,9 +46,6 @@ class JControllerLegacy {
 	public function get_input() {
 		return $this->__inst->input;
 	}
-	public function ality,suchasrenderingviews($akadisplayingtemplates = null) {
-		return $this->__inst->ality,suchasrenderingviews($akadisplayingtemplates);
-	}
 	public function addModelPath($path = null, $prefix = null) {
 		return $this->__inst->addModelPath($path, $prefix);
 	}
@@ -75,17 +72,6 @@ class JControllerLegacy {
 	}
 	public function createView($name = null, $prefix = null, $type = null, $config = null) {
 		return $this->__inst->createView($name, $prefix, $type, $config);
-	}
-	public function isprovideasadefaultimplementation,inmostcases
-	*youwillneedtooverrideitinyourowncontrollers.
-	*
-	*@paramboolean$cachableIftrue,theviewoutputwillbecached
-	*@paramarray$urlparamsAnarrayofsafeurlparametersandtheirvariabletypes,forvalidvaluessee{@linkJFilterInput::clean() {
-		return $this->__inst->isprovideasadefaultimplementation,inmostcases
-	*youwillneedtooverrideitinyourowncontrollers.
-	*
-	*@paramboolean$cachableIftrue,theviewoutputwillbecached
-	*@paramarray$urlparamsAnarrayofsafeurlparametersandtheirvariabletypes,forvalidvaluessee{@linkJFilterInput::clean();
 	}
 	public function display($cachable = null, $urlparams = null) {
 		return $this->__inst->display($cachable, $urlparams);

@@ -9,14 +9,7 @@
 
 defined('JPATH_PLATFORM') or die;
 
-/**
- * Base class for a Joomla Controller
- *
- * Controller (Controllers are where you put all the actual code.) Provides basic
- * functionality, such as rendering views (aka displaying templates).
- *
- * @since  12.2
- */
+
 class JControllerLegacy extends JObject
 {
 	/**
@@ -622,19 +615,7 @@ class JControllerLegacy extends JObject
 		return new $viewClass($config);
 	}
 
-	/**
-	 * Typical view method for MVC based architecture
-	 *
-	 * This function is provide as a default implementation, in most cases
-	 * you will need to override it in your own controllers.
-	 *
-	 * @param   boolean  $cachable   If true, the view output will be cached
-	 * @param   array    $urlparams  An array of safe url parameters and their variable types, for valid values see {@link JFilterInput::clean()}.
-	 *
-	 * @return  JControllerLegacy  A JControllerLegacy object to support chaining.
-	 *
-	 * @since   12.2
-	 */
+
 	public function display($cachable = false, $urlparams = array())
 	{
 		$document = JFactory::getDocument();

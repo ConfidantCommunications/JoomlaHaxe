@@ -18,19 +18,7 @@ class MainAdmin
 	}
     public function new()
     {
-		/*
-defined('_JEXEC') or die;
-JHtml::_('behavior.tabstate');
-
-if (!JFactory::getUser()->authorise('core.manage', 'com_contact'))
-{
-	return JError::raiseWarning(404, JText::_('JERROR_ALERTNOAUTHOR'));
-}
-
-$controller = JControllerLegacy::getInstance('contact');
-$controller->execute(JFactory::getApplication()->input->get('task'));
-$controller->redirect();
-*/
+		
 		untyped __call__("defined('_JEXEC') or die","no joomla here");
 		
 		var auth=untyped __call__("!JFactory::getUser()->authorise",'core.manage', 'com_contact');
@@ -42,7 +30,7 @@ $controller->redirect();
 		
 		untyped {
 			__call__("require_once", "JoomlahaxeController.class.php");
-			__call__("require_once", "JControllerLegacyAdmin.class.php");
+			//__call__("require_once", "JControllerLegacy.class.php");
 		}
 		
 		var config;

@@ -8,8 +8,8 @@ import php.Lib;
 @:build(PHP.generateExtern("legacy/model/legacy.php")) 
 class JModelLegacy implements Dynamic { }
 
-@:build(PHP.generateExtern("joomla/database/query/mysqli.php")) 
-class JDatabaseQueryMysqli implements Dynamic { }
+//@:build(PHP.generateExtern("joomla/database/query/mysqli.php")) 
+//class JDatabaseQueryMysqli implements Dynamic { }
 
 //this macro creates a class field which conflicts with the above one, so I'm not using it
 //@:build(PHP.generateExtern("joomla/database/driver/mysqli.php")) 
