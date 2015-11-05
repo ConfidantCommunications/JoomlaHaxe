@@ -6,6 +6,7 @@ class JoomlahaxeViewJoomlahaxe extends JViewLegacy {
 		$config = Array("[\"name\":\"Joomlahaxe\"]");
 		parent::__construct($config);
 		defined('_JEXEC') or die("no joomla here");
+		jimport("joomla.application.component.view");
 	}}
 	public function display($tpl = null) {
 		$i = $this->get("Items", null);

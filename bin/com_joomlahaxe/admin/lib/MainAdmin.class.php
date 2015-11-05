@@ -8,23 +8,16 @@ class MainAdmin {
 		defined('_JEXEC') or die("no joomla here");
 		$auth = !JFactory::getUser()->authorise("core.manage", "com_contact");
 		if($auth) {
-			$tmp = JError::raiseWarning();("404, JText::_('JERROR_ALERTNOAUTHOR')");
-			$GLOBALS['%s']->pop();
-			$tmp;
-			return;
 		}
 		require_once("JoomlahaxeController.class.php");
 		$config = null;
 		$config = Array("[\"name\":\"Joomlahaxe\"]");
-		$this->gc = new JoomlahaxeController($config);
-		$task = JFactory::getApplication()->input->get("task");
-		$this->gc->execute($task);
-		$this->gc->redirect();
+		$gc = JControllerLegacy::getInstance('Joomlahaxe');
+		$gc->execute(JRequest::getCmd('task'));
 		$GLOBALS['%s']->pop();
 	}}
 	public $ld1;
 	public $ld2;
-	public $gc;
 	public function __call($m, $a) {
 		if(isset($this->$m) && is_callable($this->$m))
 			return call_user_func_array($this->$m, $a);

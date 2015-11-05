@@ -8,6 +8,14 @@
 	@:build(PHP.generateExtern("legacy/controller/legacy.php")) 
 	class JControllerLegacy implements Dynamic { }
 
+
+	/*
+	* In regular PHP this class would be called "controller.php" and reside in the component's admin folder
+	* Since it is instantiated by the entry point (joomlahaxe.php from MainAdmin.hx) and not by the Joomla framework,
+	* we can let Haxe simply compile it into the "lib" directory.
+	*/
+
+
 	class JoomlahaxeController extends JControllerLegacy
 	{
 		static public function main()
@@ -26,19 +34,20 @@
 			}
 			super(config);
 			untyped __call__("defined('_JEXEC') or die");
-			untyped {
-				//__call__("jimport", "joomla.application.component.controller");
-			}
+			untyped __call__("jimport", "joomla.application.component.controller");
 		}
 		override public function display(?cachable:Dynamic,?urlparams:Dynamic):Dynamic{
-			// set default view if not set
-			//$input = JFactory::getApplication()->input;
+			// from example at https://docs.joomla.org/Developing_a_Model-View-Controller_%28MVC%29_Component_for_Joomla!2.5_-_Part_07#admin.2Fcontroller.php
 			var input = untyped __php__('JFactory::getApplication()->input');
 			input.set('view', input.getCmd('view', 'Joomlahaxe'));
-
+			
+			
+			
 			// call parent behavior. PHP equivalent is parent::display($cachable);
 			super.display(cachable);
 			return null;
 		}
 	}
+	
+
 

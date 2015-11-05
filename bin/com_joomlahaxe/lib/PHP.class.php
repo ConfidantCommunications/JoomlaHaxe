@@ -3,37 +3,22 @@
 class PHP {
 	public function __construct(){}
 	static function log($data) {
-		$GLOBALS['%s']->push("PHP::log");
-		$__hx__spos = $GLOBALS['%s']->length;
-		PHP::logFirePHP($data);
-		$GLOBALS['%s']->pop();
 	}
 	static function logFirePHP($message) {
-		$GLOBALS['%s']->push("PHP::logFirePHP");
-		$__hx__spos = $GLOBALS['%s']->length;
 		if(!property_exists("GLOBALS", "firephp")) {
 			ob_start();
 			require_once '/libFirePHPCore/FirePHP.class.php';
 			$GLOBALS['firephp'] = FirePHP::getInstance(true);
 		}
 		$GLOBALS["firephp"]->log("[PHP] " . _hx_string_or_null($message));
-		$GLOBALS['%s']->pop();
 	}
 	static function printData($data, $pos = null) {
-		$GLOBALS['%s']->push("PHP::printData");
-		$__hx__spos = $GLOBALS['%s']->length;
 		Debug::printData($pos, $data);
-		$GLOBALS['%s']->pop();
 	}
 	static function error($errorNumber, $message = null, $pos = null) {
-		$GLOBALS['%s']->push("PHP::error");
-		$__hx__spos = $GLOBALS['%s']->length;
 		Debug::error($errorNumber, $message, $pos->fileName, $pos->lineNumber);
-		$GLOBALS['%s']->pop();
 	}
 	static function generateFunctionArgs($args) {
-		$GLOBALS['%s']->push("PHP::generateFunctionArgs");
-		$__hx__spos = $GLOBALS['%s']->length;
 		$result = (new _hx_array(array()));
 		{
 			$_g1 = 0;
@@ -44,15 +29,9 @@ class PHP {
 				unset($i);
 			}
 		}
-		{
-			$GLOBALS['%s']->pop();
-			return $result;
-		}
-		$GLOBALS['%s']->pop();
+		return $result;
 	}
 	static function generateExpressionArgs($expression, $args = null) {
-		$GLOBALS['%s']->push("PHP::generateExpressionArgs");
-		$__hx__spos = $GLOBALS['%s']->length;
 		$result = (new _hx_array(array($expression)));
 		if($args !== null) {
 			$_g1 = 0;
@@ -63,15 +42,9 @@ class PHP {
 				unset($i);
 			}
 		}
-		{
-			$GLOBALS['%s']->pop();
-			return $result;
-		}
-		$GLOBALS['%s']->pop();
+		return $result;
 	}
 	static function getPublicAndProtectedVars($fileData) {
-		$GLOBALS['%s']->push("PHP::getPublicAndProtectedVars");
-		$__hx__spos = $GLOBALS['%s']->length;
 		$results = (new _hx_array(array()));
 		$searchIndex = 0;
 		while($searchIndex < strlen($fileData)) {
@@ -97,11 +70,7 @@ class PHP {
 			$searchIndex = $semiColonIndex1;
 			unset($varName1,$semiColonIndex1);
 		}
-		{
-			$GLOBALS['%s']->pop();
-			return $results;
-		}
-		$GLOBALS['%s']->pop();
+		return $results;
 	}
 	function __toString() { return 'PHP'; }
 }

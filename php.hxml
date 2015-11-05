@@ -28,14 +28,14 @@
 
 
 --next
-# Add the admin controls. Must be in admin folder to avoid conflicts when generating duplicate externs
+# Add the admin controls. Code must be in admin folder to avoid conflicts when generating duplicate externs
 -cp src/admin
 -main MainAdmin
 --php-front joomlahaxe.php
 -php bin/com_joomlahaxe/admin
 
 --next
-# Add the first Admin View 
+# Add the 1st Admin View 
 -cp src/admin
 # This class name needs to reflect the folder structure of the Joomla view. Joomlahaxe(component name) + View + Joomlahaxe(folder name of this view)
 # Joomla will 
@@ -45,7 +45,17 @@
 -php bin/com_joomlahaxe/admin/views/joomlahaxe
 
 --next
-# Add the Admin Model 
+# Add the 2nd Admin View 
+-cp src/admin
+# This class name needs to reflect the folder structure of the Joomla view. Joomlahaxe(component name) + View + Joomlahaxe(folder name of this view)
+# Joomla will 
+-main JoomlahaxeViewJhaxe
+--php-front view.html.php 	
+--php-lib ../../lib
+-php bin/com_joomlahaxe/admin/views/jhaxe
+
+--next
+# Add the 1st Admin Model 
 -cp src/admin
 # This class name needs to reflect the folder structure of the Joomla model. Joomlahaxe(component name) + Model + Joomlahaxe(folder name of this view)
 -main JoomlahaxeModelJoomlahaxe
@@ -53,6 +63,38 @@
 --php-lib ../lib
 -php bin/com_joomlahaxe/admin/models
 
+--next
+# Add the 2nd Admin Model 
+-cp src/admin
+# This class name needs to reflect the folder structure of the Joomla model. Joomlahaxe(component name) + Model + Joomlahaxe(folder name of this view)
+-main JoomlahaxeModelJhaxe
+--php-front jhaxe.php 	
+--php-lib ../lib
+-php bin/com_joomlahaxe/admin/models
+
+--next
+# Add the Admin Top Controller 
+-cp src/admin
+-main JoomlahaxeController
+--php-front controller.php 	
+--php-lib ../lib
+-php bin/com_joomlahaxe/admin
+
+--next
+# Add the Admin Sub Controller 1
+-cp src/admin
+-main JoomlahaxeControllerJoomlahaxe
+--php-front joomlahaxe.php 	
+--php-lib ../lib
+-php bin/com_joomlahaxe/admin/controllers
+
+--next
+# Add the Admin Sub Controller 2
+-cp src/admin
+-main JoomlahaxeControllerJhaxe
+--php-front jhaxe.php 	
+--php-lib ../lib
+-php bin/com_joomlahaxe/admin/controllers
 
 #Add debug information
 -debug
@@ -69,7 +111,18 @@
 #search/replace code in admin folder:
 -cmd (perl -pi -e 's/JoomlahaxeViewJoomlahaxe::main\(\);/require_once dirname\(__FILE__\)\."\/..\/..\/lib\/JoomlahaxeViewJoomlahaxe.class.php";/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/admin/views/joomlahaxe/view.html.php)
 
+#search/replace code in admin folder:
+-cmd (perl -pi -e 's/JoomlahaxeViewJhaxe::main\(\);/require_once dirname\(__FILE__\)\."\/..\/..\/lib\/JoomlahaxeViewJhaxe.class.php";/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/admin/views/jhaxe/view.html.php)
+
 -cmd (perl -pi -e 's/JoomlahaxeModelJoomlahaxe::main\(\);/require_once dirname\(__FILE__\)\."\/..\/lib\/JoomlahaxeModelJoomlahaxe.class.php";/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/admin/models/joomlahaxe.php)
+
+-cmd (perl -pi -e 's/JoomlahaxeModelJhaxe::main\(\);/require_once dirname\(__FILE__\)\."\/..\/lib\/JoomlahaxeModelJhaxe.class.php";/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/admin/models/jhaxe.php)
+
+-cmd (perl -pi -e 's/JoomlahaxeController::main\(\);/require_once dirname\(__FILE__\)\."\/..\/lib\/JoomlahaxeController.class.php";/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/admin/controller.php)
+
+-cmd (perl -pi -e 's/JoomlahaxeControllerJoomlahaxe::main\(\);/require_once dirname\(__FILE__\)\."\/..\/lib\/JoomlahaxeControllerJoomlahaxe.class.php";/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/admin/controllers/joomlahaxe.php)
+
+-cmd (perl -pi -e 's/JoomlahaxeControllerJhaxe::main\(\);/require_once dirname\(__FILE__\)\."\/..\/lib\/JoomlahaxeControllerJhaxe.class.php";/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/admin/controllers/jhaxe.php)
 
 -cmd (perl -pi -e 's/(MainAdmin)/require_once dirname\(__FILE__\)."\/lib\/MainAdmin.class.php";\r\1/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/admin/joomlahaxe.php)
 

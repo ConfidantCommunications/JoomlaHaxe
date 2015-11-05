@@ -7,6 +7,8 @@ class JViewLegacy implements Dynamic { }
 
 
 //in the tutorial they named this class "helloworlds" (with an s) which is confusing because they also had a view called "helloworld". I will name this one "Joomlahaxe" (JoomlahaxeViewJoomlahaxe) and the latter "Jhaxe"
+
+//admin/views/helloworlds/view.html.php
 class JoomlahaxeViewJoomlahaxe extends JViewLegacy
 {
 	public static function main () {
@@ -23,7 +25,7 @@ class JoomlahaxeViewJoomlahaxe extends JViewLegacy
 		}
 		super(config);
 		untyped __call__("defined('_JEXEC') or die","no joomla here");
-		
+		untyped __call__("jimport", "joomla.application.component.view");
 	}
 	override public function display(?tpl:Dynamic) 
 		{

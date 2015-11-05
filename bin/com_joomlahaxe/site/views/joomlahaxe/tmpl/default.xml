@@ -5,4 +5,21 @@
 			<![CDATA[COM_JOOMLAHAXE_JOOMLAHAXE_VIEW_DEFAULT_DESC]]>
 		</message>
 	</layout>
+	<fields
+		name="request"
+		addfieldpath="/administrator/components/com_joomlahaxe/models/fields"
+	>
+		<fieldset name="request">
+			<field
+				name="id"
+				type="helloworld"
+				label="COM_JOOMLAHAXE_JOOMLAHAXE_GREETING_LABEL"
+				description="COM_JOOMLAHAXE_JOOMLAHAXE_GREETING_DESC"
+				default="1"
+			/>
+			<!-- these options are handled by the model -->
+			<option value="1">Hello World!</option>
+			<option value="2">Good bye World!</option>
+		</fieldset>
+	</fields>
 </metadata>

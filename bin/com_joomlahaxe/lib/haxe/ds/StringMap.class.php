@@ -4,24 +4,10 @@ class haxe_ds_StringMap implements IMap, IteratorAggregate{
 	public function __construct(){}
 	public $h;
 	public function iterator() {
-		$GLOBALS['%s']->push("haxe.ds.StringMap::iterator");
-		$__hx__spos = $GLOBALS['%s']->length;
-		{
-			$tmp = new _hx_array_iterator(array_values($this->h));
-			$GLOBALS['%s']->pop();
-			return $tmp;
-		}
-		$GLOBALS['%s']->pop();
+		return new _hx_array_iterator(array_values($this->h));
 	}
 	public function getIterator() {
-		$GLOBALS['%s']->push("haxe.ds.StringMap::getIterator");
-		$__hx__spos = $GLOBALS['%s']->length;
-		{
-			$tmp = $this->iterator();
-			$GLOBALS['%s']->pop();
-			return $tmp;
-		}
-		$GLOBALS['%s']->pop();
+		return $this->iterator();
 	}
 	public function __call($m, $a) {
 		if(isset($this->$m) && is_callable($this->$m))

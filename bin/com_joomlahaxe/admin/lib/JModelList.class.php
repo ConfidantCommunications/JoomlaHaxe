@@ -3,230 +3,75 @@
 class JModelList {
 	public function __construct($config = null) {
 		if(!php_Boot::$skip_constructor) {
-		$GLOBALS['%s']->push("JModelList::new");
-		$__hx__spos = $GLOBALS['%s']->length;
-		{
-			$tmp = $this->__inst = new list($config);
-			$GLOBALS['%s']->pop();
-			$tmp;
-			return;
-		}
-		$GLOBALS['%s']->pop();
+		$this->__inst = new list($config);
+		return;
 	}}
 	public $__inst;
 	public function get_cache = array()() {
-		$GLOBALS['%s']->push("JModelList::get_cache = array()");
-		$__hx__spos = $GLOBALS['%s']->length;
-		{
-			$GLOBALS['%s']->pop();
-			return $this->__inst->cache = array();
-		}
-		$GLOBALS['%s']->pop();
+		return $this->__inst->cache = array();
 	}
 	public function get_context = null() {
-		$GLOBALS['%s']->push("JModelList::get_context = null");
-		$__hx__spos = $GLOBALS['%s']->length;
-		{
-			$GLOBALS['%s']->pop();
-			return $this->__inst->context = null;
-		}
-		$GLOBALS['%s']->pop();
+		return $this->__inst->context = null;
 	}
 	public function get_filter_fields = array()() {
-		$GLOBALS['%s']->push("JModelList::get_filter_fields = array()");
-		$__hx__spos = $GLOBALS['%s']->length;
-		{
-			$GLOBALS['%s']->pop();
-			return $this->__inst->filter_fields = array();
-		}
-		$GLOBALS['%s']->pop();
+		return $this->__inst->filter_fields = array();
 	}
 	public function get_query = array()() {
-		$GLOBALS['%s']->push("JModelList::get_query = array()");
-		$__hx__spos = $GLOBALS['%s']->length;
-		{
-			$GLOBALS['%s']->pop();
-			return $this->__inst->query = array();
-		}
-		$GLOBALS['%s']->pop();
+		return $this->__inst->query = array();
 	}
 	public function get_filterFormName = null() {
-		$GLOBALS['%s']->push("JModelList::get_filterFormName = null");
-		$__hx__spos = $GLOBALS['%s']->length;
-		{
-			$GLOBALS['%s']->pop();
-			return $this->__inst->filterFormName = null;
-		}
-		$GLOBALS['%s']->pop();
+		return $this->__inst->filterFormName = null;
 	}
 	public function get_htmlFormName = 'adminForm'() {
-		$GLOBALS['%s']->push("JModelList::get_htmlFormName = 'adminForm'");
-		$__hx__spos = $GLOBALS['%s']->length;
-		{
-			$GLOBALS['%s']->pop();
-			return $this->__inst->htmlFormName = 'adminForm';
-		}
-		$GLOBALS['%s']->pop();
+		return $this->__inst->htmlFormName = 'adminForm';
 	}
 	public function _getListQuery() {
-		$GLOBALS['%s']->push("JModelList::_getListQuery");
-		$__hx__spos = $GLOBALS['%s']->length;
-		{
-			$tmp = $this->__inst->_getListQuery();
-			$GLOBALS['%s']->pop();
-			return $tmp;
-		}
-		$GLOBALS['%s']->pop();
+		return $this->__inst->_getListQuery();
 	}
 	public function getActiveFilters() {
-		$GLOBALS['%s']->push("JModelList::getActiveFilters");
-		$__hx__spos = $GLOBALS['%s']->length;
-		{
-			$tmp = $this->__inst->getActiveFilters();
-			$GLOBALS['%s']->pop();
-			return $tmp;
-		}
-		$GLOBALS['%s']->pop();
+		return $this->__inst->getActiveFilters();
 	}
 	public function getItems() {
-		$GLOBALS['%s']->push("JModelList::getItems");
-		$__hx__spos = $GLOBALS['%s']->length;
-		{
-			$tmp = $this->__inst->getItems();
-			$GLOBALS['%s']->pop();
-			return $tmp;
-		}
-		$GLOBALS['%s']->pop();
+		return $this->__inst->getItems();
 	}
 	public function getListQuery() {
-		$GLOBALS['%s']->push("JModelList::getListQuery");
-		$__hx__spos = $GLOBALS['%s']->length;
-		{
-			$tmp = $this->__inst->getListQuery();
-			$GLOBALS['%s']->pop();
-			return $tmp;
-		}
-		$GLOBALS['%s']->pop();
+		return $this->__inst->getListQuery();
 	}
 	public function getPagination() {
-		$GLOBALS['%s']->push("JModelList::getPagination");
-		$__hx__spos = $GLOBALS['%s']->length;
-		{
-			$tmp = $this->__inst->getPagination();
-			$GLOBALS['%s']->pop();
-			return $tmp;
-		}
-		$GLOBALS['%s']->pop();
+		return $this->__inst->getPagination();
 	}
 	public function getStoreId($id = null) {
-		$GLOBALS['%s']->push("JModelList::getStoreId");
-		$__hx__spos = $GLOBALS['%s']->length;
-		{
-			$tmp = $this->__inst->getStoreId($id);
-			$GLOBALS['%s']->pop();
-			return $tmp;
-		}
-		$GLOBALS['%s']->pop();
+		return $this->__inst->getStoreId($id);
 	}
 	public function getTotal() {
-		$GLOBALS['%s']->push("JModelList::getTotal");
-		$__hx__spos = $GLOBALS['%s']->length;
-		{
-			$tmp = $this->__inst->getTotal();
-			$GLOBALS['%s']->pop();
-			return $tmp;
-		}
-		$GLOBALS['%s']->pop();
+		return $this->__inst->getTotal();
 	}
 	public function getStart() {
-		$GLOBALS['%s']->push("JModelList::getStart");
-		$__hx__spos = $GLOBALS['%s']->length;
-		{
-			$tmp = $this->__inst->getStart();
-			$GLOBALS['%s']->pop();
-			return $tmp;
-		}
-		$GLOBALS['%s']->pop();
+		return $this->__inst->getStart();
 	}
 	public function getFilterForm($data = null) {
-		$GLOBALS['%s']->push("JModelList::getFilterForm");
-		$__hx__spos = $GLOBALS['%s']->length;
-		{
-			$tmp = $this->__inst->getFilterForm($data);
-			$GLOBALS['%s']->pop();
-			return $tmp;
-		}
-		$GLOBALS['%s']->pop();
+		return $this->__inst->getFilterForm($data);
 	}
 	public function loadForm($name = null, $source = null, $options = null) {
-		$GLOBALS['%s']->push("JModelList::loadForm");
-		$__hx__spos = $GLOBALS['%s']->length;
-		{
-			$tmp = $this->__inst->loadForm($name, $source, $options);
-			$GLOBALS['%s']->pop();
-			return $tmp;
-		}
-		$GLOBALS['%s']->pop();
+		return $this->__inst->loadForm($name, $source, $options);
 	}
 	public function loadFormData() {
-		$GLOBALS['%s']->push("JModelList::loadFormData");
-		$__hx__spos = $GLOBALS['%s']->length;
-		{
-			$tmp = $this->__inst->loadFormData();
-			$GLOBALS['%s']->pop();
-			return $tmp;
-		}
-		$GLOBALS['%s']->pop();
+		return $this->__inst->loadFormData();
 	}
 	public function populateState($ordering = null, $direction = null) {
-		$GLOBALS['%s']->push("JModelList::populateState");
-		$__hx__spos = $GLOBALS['%s']->length;
-		{
-			$tmp = $this->__inst->populateState($ordering, $direction);
-			$GLOBALS['%s']->pop();
-			return $tmp;
-		}
-		$GLOBALS['%s']->pop();
+		return $this->__inst->populateState($ordering, $direction);
 	}
 	public function preprocessForm($JFormform = null, $data = null, $group = null) {
-		$GLOBALS['%s']->push("JModelList::preprocessForm");
-		$__hx__spos = $GLOBALS['%s']->length;
-		{
-			$tmp = $this->__inst->preprocessForm($JFormform, $data, $group);
-			$GLOBALS['%s']->pop();
-			return $tmp;
-		}
-		$GLOBALS['%s']->pop();
+		return $this->__inst->preprocessForm($JFormform, $data, $group);
 	}
 	public function getUserStateFromRequest($key = null, $request = null, $default = null, $type = null, $resetPage = null) {
-		$GLOBALS['%s']->push("JModelList::getUserStateFromRequest");
-		$__hx__spos = $GLOBALS['%s']->length;
-		{
-			$tmp = $this->__inst->getUserStateFromRequest($key, $request, $default, $type, $resetPage);
-			$GLOBALS['%s']->pop();
-			return $tmp;
-		}
-		$GLOBALS['%s']->pop();
+		return $this->__inst->getUserStateFromRequest($key, $request, $default, $type, $resetPage);
 	}
 	public function refineSearchStringToRegex($search = null, $regexDelimiter = null) {
-		$GLOBALS['%s']->push("JModelList::refineSearchStringToRegex");
-		$__hx__spos = $GLOBALS['%s']->length;
-		{
-			$tmp = $this->__inst->refineSearchStringToRegex($search, $regexDelimiter);
-			$GLOBALS['%s']->pop();
-			return $tmp;
-		}
-		$GLOBALS['%s']->pop();
+		return $this->__inst->refineSearchStringToRegex($search, $regexDelimiter);
 	}
 	public function resolve($field) {
-		$GLOBALS['%s']->push("JModelList::resolve");
-		$__hx__spos = $GLOBALS['%s']->length;
-		{
-			$tmp = $this->__inst->$field;
-			$GLOBALS['%s']->pop();
-			return $tmp;
-		}
-		$GLOBALS['%s']->pop();
+		return $this->__inst->$field;
 	}
 	public $__dynamics = array();
 	public function __get($n) {

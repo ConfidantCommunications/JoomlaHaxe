@@ -13,8 +13,7 @@ class JoomlahaxeController extends JControllerLegacy {
 	public function display($cachable = null, $urlparams = null) {
 		$GLOBALS['%s']->push("JoomlahaxeController::display");
 		$__hx__spos = $GLOBALS['%s']->length;
-		$input = JFactory::getApplication()->input;
-		$input->set("view", $input->getCmd("view", "Joomlahaxe"));
+		JRequest::setVar('view', JRequest::getCmd('view', 'Joomlahaxe'));;
 		parent::display($cachable,null);
 		{
 			$GLOBALS['%s']->pop();

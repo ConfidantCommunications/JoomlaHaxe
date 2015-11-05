@@ -3,31 +3,18 @@
 class MainAdmin {
 	public function __construct() {
 		if(!php_Boot::$skip_constructor) {
-		$GLOBALS['%s']->push("MainAdmin::new");
-		$__hx__spos = $GLOBALS['%s']->length;
 		defined('_JEXEC') or die("no joomla here");
 		$auth = !JFactory::getUser()->authorise("core.manage", "com_contact");
 		if($auth) {
-			$tmp = JError::raiseWarning();("404, JText::_('JERROR_ALERTNOAUTHOR')");
-			$GLOBALS['%s']->pop();
-			$tmp;
-			return;
 		}
-		{
-			require_once("JoomlahaxeController.class.php");
-			require_once("JControllerLegacy.class.php");
-		}
+		require_once("JoomlahaxeController.class.php");
 		$config = null;
 		$config = Array("[\"name\":\"Joomlahaxe\"]");
-		$this->gc = new JoomlahaxeController($config);
-		$task = JFactory::getApplication()->input->get("task");
-		$this->gc->execute($task);
-		$this->gc->redirect();
-		$GLOBALS['%s']->pop();
+		$gc = JControllerLegacy::getInstance('Joomlahaxe');
+		$gc->execute(JRequest::getCmd('task'));
 	}}
 	public $ld1;
 	public $ld2;
-	public $gc;
 	public function __call($m, $a) {
 		if(isset($this->$m) && is_callable($this->$m))
 			return call_user_func_array($this->$m, $a);
@@ -41,10 +28,7 @@ class MainAdmin {
 	static function __meta__() { $args = func_get_args(); return call_user_func_array(self::$__meta__, $args); }
 	static $__meta__;
 	static function main() {
-		$GLOBALS['%s']->push("MainAdmin::main");
-		$__hx__spos = $GLOBALS['%s']->length;
 		new MainAdmin();
-		$GLOBALS['%s']->pop();
 	}
 	function __toString() { return 'MainAdmin'; }
 }

@@ -47,24 +47,6 @@
     ]
     ,"files" : [
          {
-             "path" : "php.hxml"
-            ,"useTabs" : true
-            ,"indentSize" : 4
-            ,"foldedRegions" : [
-
-            ]
-            ,"activeLine" : 69
-        }
-        ,{
-             "path" : "src/admin/JoomlahaxeController.hx"
-            ,"useTabs" : true
-            ,"indentSize" : 4
-            ,"foldedRegions" : [
-
-            ]
-            ,"activeLine" : 16
-        }
-        ,{
              "path" : "src/admin/JoomlahaxeViewJoomlahaxedefaultadmin.hx"
             ,"useTabs" : true
             ,"indentSize" : 4
@@ -80,7 +62,7 @@
             ,"foldedRegions" : [
 
             ]
-            ,"activeLine" : 20
+            ,"activeLine" : 24
         }
         ,{
              "path" : "src/admin/MainAdmin.hx"
@@ -92,16 +74,43 @@
             ,"activeLine" : 37
         }
         ,{
-             "path" : "src/admin/JoomlahaxeViewJoomlahaxe.hx"
+             "path" : "src/admin/JoomlahaxeController.hx"
             ,"useTabs" : true
             ,"indentSize" : 4
             ,"foldedRegions" : [
 
             ]
-            ,"activeLine" : 13
+            ,"activeLine" : 0
+        }
+        ,{
+             "path" : "src/admin/JoomlahaxeControllerJhaxe.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 27
+        }
+        ,{
+             "path" : "src/admin/JoomlahaxeControllerJoomlahaxe.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 24
+        }
+        ,{
+             "path" : "php.hxml"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 118
         }
     ]
-    ,"activeFile" : "src/admin/JoomlahaxeController.hx"
+    ,"activeFile" : "src/admin/JoomlahaxeControllerJoomlahaxe.hx"
     ,"openFLTarget" : null
     ,"openFLBuildMode" : "Debug"
     ,"runActionType" : null
