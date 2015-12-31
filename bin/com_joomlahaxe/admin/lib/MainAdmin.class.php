@@ -5,15 +5,23 @@ class MainAdmin {
 		if(!php_Boot::$skip_constructor) {
 		$GLOBALS['%s']->push("MainAdmin::new");
 		$__hx__spos = $GLOBALS['%s']->length;
-		defined('_JEXEC') or die("no joomla here");
-		$auth = !JFactory::getUser()->authorise("core.manage", "com_contact");
-		if($auth) {
-		}
-		require_once("JoomlahaxeController.class.php");
-		$config = null;
-		$config = Array("[\"name\":\"Joomlahaxe\"]");
+		defined('_JEXEC') or die('no joomla here');
 		$gc = JControllerLegacy::getInstance('Joomlahaxe');
-		$gc->execute(JRequest::getCmd('task'));
+		try {
+			$gc->execute(JRequest::getCmd('task'));
+		}catch(Exception $__hx__e) {
+			$_ex_ = ($__hx__e instanceof HException) ? $__hx__e->e : $__hx__e;
+			$e = $_ex_;
+			{
+				$GLOBALS['%e'] = (new _hx_array(array()));
+				while($GLOBALS['%s']->length >= $__hx__spos) {
+					$GLOBALS['%e']->unshift($GLOBALS['%s']->pop());
+				}
+				$GLOBALS['%s']->push($GLOBALS['%e'][0]);
+				php_Lib::hprint($e);
+			}
+		}
+		$gc->redirect();
 		$GLOBALS['%s']->pop();
 	}}
 	public $ld1;

@@ -171,155 +171,37 @@ class JRequest
 		return $var;
 	}
 
-	/**
-	 * Fetches and returns a given filtered variable. The integer
-	 * filter will allow only digits and the - sign to be returned. This is currently
-	 * only a proxy function for getVar().
-	 *
-	 * See getVar() for more in-depth documentation on the parameters.
-	 *
-	 * @param   string  $name     Variable name.
-	 * @param   string  $default  Default value if the variable does not exist.
-	 * @param   string  $hash     Where the var should come from (POST, GET, FILES, COOKIE, METHOD).
-	 *
-	 * @return  integer  Requested variable.
-	 *
-	 * @since   11.1
-	 *
-	 * @deprecated   12.1
-	 */
+ 
 	public static function getInt($name, $default = 0, $hash = 'default')
 	{
 		return self::getVar($name, $default, $hash, 'int');
 	}
 
-	/**
-	 * Fetches and returns a given filtered variable. The unsigned integer
-	 * filter will allow only digits to be returned. This is currently
-	 * only a proxy function for getVar().
-	 *
-	 * See getVar() for more in-depth documentation on the parameters.
-	 *
-	 * @param   string  $name     Variable name.
-	 * @param   string  $default  Default value if the variable does not exist.
-	 * @param   string  $hash     Where the var should come from (POST, GET, FILES, COOKIE, METHOD).
-	 *
-	 * @return  integer  Requested variable.
-	 *
-	 * @deprecated  12.1
-	 * @since       11.1
-	 */
 	public static function getUInt($name, $default = 0, $hash = 'default')
 	{
 		return self::getVar($name, $default, $hash, 'uint');
 	}
 
-	/**
-	 * Fetches and returns a given filtered variable.  The float
-	 * filter only allows digits and periods.  This is currently
-	 * only a proxy function for getVar().
-	 *
-	 * See getVar() for more in-depth documentation on the parameters.
-	 *
-	 * @param   string  $name     Variable name.
-	 * @param   string  $default  Default value if the variable does not exist.
-	 * @param   string  $hash     Where the var should come from (POST, GET, FILES, COOKIE, METHOD).
-	 *
-	 * @return  float  Requested variable.
-	 *
-	 * @since   11.1
-	 *
-	 * @deprecated   12.1
-	 */
 	public static function getFloat($name, $default = 0.0, $hash = 'default')
 	{
 		return self::getVar($name, $default, $hash, 'float');
 	}
 
-	/**
-	 * Fetches and returns a given filtered variable. The bool
-	 * filter will only return true/false bool values. This is
-	 * currently only a proxy function for getVar().
-	 *
-	 * See getVar() for more in-depth documentation on the parameters.
-	 *
-	 * @param   string  $name     Variable name.
-	 * @param   string  $default  Default value if the variable does not exist.
-	 * @param   string  $hash     Where the var should come from (POST, GET, FILES, COOKIE, METHOD).
-	 *
-	 * @return  boolean  Requested variable.
-	 *
-	 * @deprecated  12.1
-	 * @since       11.1
-	 */
 	public static function getBool($name, $default = false, $hash = 'default')
 	{
 		return self::getVar($name, $default, $hash, 'bool');
 	}
 
-	/**
-	 * Fetches and returns a given filtered variable. The word
-	 * filter only allows the characters [A-Za-z_]. This is currently
-	 * only a proxy function for getVar().
-	 *
-	 * See getVar() for more in-depth documentation on the parameters.
-	 *
-	 * @param   string  $name     Variable name.
-	 * @param   string  $default  Default value if the variable does not exist.
-	 * @param   string  $hash     Where the var should come from (POST, GET, FILES, COOKIE, METHOD).
-	 *
-	 * @return  string  Requested variable.
-	 *
-	 * @since   11.1
-	 *
-	 * @deprecated   12.1
-	 */
 	public static function getWord($name, $default = '', $hash = 'default')
 	{
 		return self::getVar($name, $default, $hash, 'word');
 	}
-
-	/**
-	 * Cmd (Word and Integer0 filter
-	 *
-	 * Fetches and returns a given filtered variable. The cmd
-	 * filter only allows the characters [A-Za-z0-9.-_]. This is
-	 * currently only a proxy function for getVar().
-	 *
-	 * See getVar() for more in-depth documentation on the parameters.
-	 *
-	 * @param   string  $name     Variable name
-	 * @param   string  $default  Default value if the variable does not exist
-	 * @param   string  $hash     Where the var should come from (POST, GET, FILES, COOKIE, METHOD)
-	 *
-	 * @return  string  Requested variable
-	 *
-	 * @deprecated  12.1
-	 * @since       11.1
-	 */
+ 
 	public static function getCmd($name, $default = '', $hash = 'default')
 	{
 		return self::getVar($name, $default, $hash, 'cmd');
 	}
-
-	/**
-	 * Fetches and returns a given filtered variable. The string
-	 * filter deletes 'bad' HTML code, if not overridden by the mask.
-	 * This is currently only a proxy function for getVar().
-	 *
-	 * See getVar() for more in-depth documentation on the parameters.
-	 *
-	 * @param   string   $name     Variable name
-	 * @param   string   $default  Default value if the variable does not exist
-	 * @param   string   $hash     Where the var should come from (POST, GET, FILES, COOKIE, METHOD)
-	 * @param   integer  $mask     Filter mask for the variable
-	 *
-	 * @return  string   Requested variable
-	 *
-	 * @since   11.1
-	 *
-	 * @deprecated   12.1
-	 */
+ 
 	public static function getString($name, $default = '', $hash = 'default', $mask = 0)
 	{
 		// Cast to string, in case JREQUEST_ALLOWRAW was specified for mask

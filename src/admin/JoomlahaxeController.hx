@@ -8,45 +8,63 @@
 	@:build(PHP.generateExtern("legacy/controller/legacy.php")) 
 	class JControllerLegacy implements Dynamic { }
 
-
-	/*
-	* In regular PHP this class would be called "controller.php" and reside in the component's admin folder
-	* Since it is instantiated by the entry point (joomlahaxe.php from MainAdmin.hx) and not by the Joomla framework,
-	* we can let Haxe simply compile it into the "lib" directory.
-	*/
-
+	//@:build(PHP.generateExtern("legacy/request/request.php")) 
+	//class JRequest implements Dynamic { } 
 
 	class JoomlahaxeController extends JControllerLegacy
 	{
 		static public function main()
 		{
-
-			new JoomlahaxeController(null);
-
-
 		}
 
-		public function new(config:Dynamic){
-			var config;
-			config=untyped{
-				__call__("Array","[\"name\":\"Joomlahaxe\"]");
-
-			}
-			super(config);
-			untyped __call__("defined('_JEXEC') or die");
-			untyped __call__("jimport", "joomla.application.component.controller");
-		}
 		override public function display(?cachable:Dynamic,?urlparams:Dynamic):Dynamic{
 			// from example at https://docs.joomla.org/Developing_a_Model-View-Controller_%28MVC%29_Component_for_Joomla!2.5_-_Part_07#admin.2Fcontroller.php
-			var input = untyped __php__('JFactory::getApplication()->input');
-			input.set('view', input.getCmd('view', 'Joomlahaxe'));
+			//var input = untyped __php__('JFactory::getApplication().input');
+			//input.set('view', input.getCmd('view', 'Joomlahaxe'));
+			
+			untyped __php__("JRequest::setVar('view', JRequest::getCmd('view', 'Joomlahaxes'))");
+
+			//JRequest.setVar('view', JRequest.getCmd('view', 'Joomlahaxe'));
+			
+// 			var view   = this.input.get('view', 'banners');
+// 			var layout = this.input.get('layout', 'default');
+// 			var id     = this.input.getInt('id');
+
+// 				// Check for edit form.
+// 				if (view == 'banner' && layout == 'edit' && !this.checkEditId('com_banners.edit.banner', id))
+// 				{
+// 					// Somehow the person just went to the form - we don't allow that.
+// 					this.setError(JText::sprintf('JLIB_APPLICATION_ERROR_UNHELD_ID', id));
+// 					this.setMessage(this.getError(), 'error');
+// 					this.setRedirect(JRoute::_('index.php?option=com_banners&view=banners', false));
+
+// 					return false;
+// 				}
+// 				elseif ($view == 'client' && $layout == 'edit' && !this.checkEditId('com_banners.edit.client', $id))
+// 				{
+// 					// Somehow the person just went to the form - we don't allow that.
+// 					this.setError(JText::sprintf('JLIB_APPLICATION_ERROR_UNHELD_ID', $id));
+// 					this.setMessage(this.getError(), 'error');
+// 					this.setRedirect(JRoute::_('index.php?option=com_banners&view=clients', false));
+
+// 					return false;
+// 				}
+
 			
 			
 			
 			// call parent behavior. PHP equivalent is parent::display($cachable);
-			super.display(cachable);
-			return null;
+			super.display(cachable,urlparams);
+			return this;
+			
+			
+			
+			
+			
 		}
+		
+		
+		
 	}
 	
 

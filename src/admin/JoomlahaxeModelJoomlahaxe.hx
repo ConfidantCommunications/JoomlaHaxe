@@ -5,90 +5,73 @@ import php.Lib;
 import php.NativeArray;
 //import JTable;
 
-@:build(PHP.generateExtern("legacy/model/list.php")) 
-class JModelList implements Dynamic { }
+@:build(PHP.generateExtern("legacy/model/admin.php"))
+class JModelAdmin implements Dynamic { }
 
-//@:build(PHP.generateExtern("joomla/object/object.php")) 
+//@:build(PHP.generateExtern("joomla/object/object.php"))
 //class JObject implements Dynamic { }
 
 
-class JoomlahaxeModelJoomlahaxe extends JModelList
+class JoomlahaxeModelJoomlahaxe extends JModelAdmin
 {
-	
+
 	public static function main () {
-		
-		new JoomlahaxeModelJoomlahaxe ();
-		
 	}
-    public function new()
-    {
-		var config;
-		config=untyped{
-			__call__("Array","[\"name\":\"Joomlahaxe\"]");
-			
-		}
-		super(config);
-		untyped __call__("defined('_JEXEC') or die","no joomla here, scallywag");
-		
-		untyped __call__("jimport", "joomla.application.component.modellist");
-		
-	}
-	override public function getListQuery()
+	public function getTable(type = 'Joomlahaxe', prefix = 'JoomlahaxeTable', config=null)
 	{
-		// This is called for the default admin listing	
-		var db = untyped __call__('JFactory::getDbo');
-		var query = db.getQuery(true);
-		// Select some fields
-		//query.select('name,details');
-		query.select('id,name,details,enabled');
-		
-		// From the joomlahaxe table
-		query.from('#__joomlahaxe');
-		//query.setLimit('10');
-		
-		
-		return query;
-	}
-	public function delete(whichEntry:Int):Bool
-	{
-		untyped __php__('die("deleted")');
-		return false;
-	}
-	public function getMsg(id = 1) 
-	{
-		if (this.messages==null)
+ 		if (config==null)
 		{
-			this.messages=Lib.toPhpArray(new Array<Dynamic>());
+			config=untyped __php__('array()');
 		}
- 
-		if (this.messages[id]!=null) 
+
+		return untyped __php__("JTable::getInstance($type, $prefix, $config)");
+	}
+	public function getForm(data = null, loadData = true)
+	{
+		//untyped __php__('die()');
+		if (data==null)
 		{
-            //request the selected id
-			var jinput = untyped __php__('JFactory::getApplication()->input');
-			id = jinput.get('id', 1, 'INT' );
- 			
+ 			data=untyped __php__('array()');//=Lib.toPhpArray(new Array<Dynamic>());
+		}
 			/*
-			switch ($id) 
-			{
-			case 2:
-				$this->msg = 'Good bye World!';
-			break;
-			default:
-			case 1:
-				$this->msg = 'Hello World!';
-			break;
-			}*/
-			
-			// Get a TableJoomlahaxe instance
-			var table = this.getTable(); //goes to function above
- 
-			// Load the message
-			table.load(id);
- 
-			// Assign the message
-			this.messages[id] = table.greeting;
+		// Get the form.
+		var h=new Map<String,String>();
+		h.set('control' , 'jform');
+		h.set('load_data' , loadData?'true':'false');
+		var formArray=Lib.associativeArrayOfHash(h);
+		var form = this.loadForm('com_joomlahaxe.joomlahaxe', 'joomlahaxe',formArray);
+		if (form==null)
+		{
+			return false;
 		}
- 
-		return this.messages[id];
+		return form;*/
+
+		var form:Dynamic = untyped __php__("$this->loadForm('com_joomlahaxe.joomlahaxe', 'joomlahaxe', array('control' => 'jform', 'load_data' => $loadData))");
+
+		if (form==null)
+		{
+			return false;
+		}
+		return form;
 	}
+	private function loadFormData()
+	{
+		// Check the session for previously entered form data.
+		var data = untyped __php__("JFactory::getApplication()->getUserState('com_joomlahaxe.edit.joomlahaxe.data', array())");
+		if (data==null)
+		{
+			data = this.getItem();
+		}
+		var d:String="asdf";
+		return data;
+	}
+
+
+
+	/*public function edit():Void{
+		untyped __php__('die("edit")');
+	}
+	public function add():Void{
+		untyped __php__('die("add")');
+	}*/
 }

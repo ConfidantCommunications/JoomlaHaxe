@@ -5,56 +5,57 @@ import php.Lib;
 @:build(PHP.generateExtern("legacy/view/legacy.php")) 
 class JViewLegacy implements Dynamic { }
 
-
-//in the tutorial they named this class "helloworlds" (with an s) which is confusing because they also had a view called "helloworld". I will name this one "Joomlahaxe" (JoomlahaxeViewJoomlahaxe) and the latter "Jhaxe"
-
-//admin/views/helloworlds/view.html.php
+//admin/views/helloworld/view.html.php
 class JoomlahaxeViewJoomlahaxe extends JViewLegacy
 {
+	var i:Dynamic;
+	var f:Dynamic;
 	public static function main () {
 		
-		new JoomlahaxeViewJoomlahaxe ();
-		
-	}
-    public function new()
-    {
-		var config;
-		config=untyped{
-			__call__("Array","[\"name\":\"Joomlahaxe\"]");
-			
-		}
-		super(config);
-		untyped __call__("defined('_JEXEC') or die","no joomla here");
-		untyped __call__("jimport", "joomla.application.component.view");
 	}
 	override public function display(?tpl:Dynamic) 
 		{
-			// Get data from the model
-			var i = get('Items');
-			var p = get('Pagination');
 			
-			// Check for errors.
-			var errors = get('Errors');
-			if (errors!=null) 
-			{
-				//untyped __php__("JError::raiseError(500, implode('<br />', $errors));");
-				//return false;
+			try{
+				i = get('Item'); 
+				f = get('Form'); //calls "getForm" on the model
+			} catch (e:Dynamic){
+				Lib.print(e);
+				return false;
 			}
 			// Assign data to the view
-			this.items = i;
-			this.pagination = p;
+			this.item = i;
+			this.form = f;
 			
-			addToolBar();
+			addToolBar(i,f);
 			// Display the template
 			super.display(tpl);
 			return null;
 		}
 	
-	private function addToolBar() 
+	private function addToolBar(theItem,theForm) 
 	{
-		JToolbarHelper.title(untyped __php__("JText::_('COM_JOOMLAHAXE_JOOMLAHAXE_VIEW_DEFAULT_TITLE')"));
-		JToolbarHelper.deleteList('', 'joomlahaxe.delete');
-		JToolbarHelper.editList('jhaxe.edit');
-		JToolbarHelper.addNew('jhaxe.add');
+		var input = untyped __php__('JFactory::getApplication()->input;');
+		input.set('hidemainmenu', true);
+		var isNew:Bool=false;
+		Lib.print("Item:");
+		Lib.print(theItem);
+		Lib.print("Form:");
+		Lib.print(theForm);
+			//Lib.print("id:"+this.item.id);
+		try{
+			isNew=(this.item.id==0);
+			
+		} catch (e:Dynamic){
+			Lib.print(e);
+			isNew=false;
+			//return false;
+		}
+		//var isNew=untyped __php__("$this->item->id == 0");
+		JToolbarHelper.title(isNew ? 'New item' : 'Edit item');
+		JToolbarHelper.save('joomlahaxe.save','Save');
+		JToolbarHelper.cancel('joomlahaxe.cancel', isNew ? 'Cancel' : 'Close');
+		return true;
 	}
+	
 }

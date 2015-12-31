@@ -54,7 +54,7 @@ class Main
 			
 		}
 		
-		gc=new JoomlahaxeController(config);
+		gc=new JoomlahaxeController(config); ///need to make like the admin version
 		var task=untyped __call__("JFactory::getApplication()->input->get","task");
 		gc.execute(task);
 		gc.redirect();

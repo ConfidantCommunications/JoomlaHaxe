@@ -37,6 +37,16 @@
 --next
 # Add the 1st Admin View 
 -cp src/admin
+# This class name needs to reflect the folder structure of the Joomla view. Joomlahaxe(component name) + View + Joomlahaxes(folder name of this view)
+# Joomla will 
+-main JoomlahaxeViewJoomlahaxes
+--php-front view.html.php 	
+--php-lib ../../lib
+-php bin/com_joomlahaxe/admin/views/joomlahaxes
+
+--next
+# Add the 2nd Admin View 
+-cp src/admin
 # This class name needs to reflect the folder structure of the Joomla view. Joomlahaxe(component name) + View + Joomlahaxe(folder name of this view)
 # Joomla will 
 -main JoomlahaxeViewJoomlahaxe
@@ -45,17 +55,16 @@
 -php bin/com_joomlahaxe/admin/views/joomlahaxe
 
 --next
-# Add the 2nd Admin View 
+# Add the 1st Admin Model 
 -cp src/admin
-# This class name needs to reflect the folder structure of the Joomla view. Joomlahaxe(component name) + View + Joomlahaxe(folder name of this view)
-# Joomla will 
--main JoomlahaxeViewJhaxe
---php-front view.html.php 	
---php-lib ../../lib
--php bin/com_joomlahaxe/admin/views/jhaxe
+# This class name needs to reflect the folder structure of the Joomla model. Joomlahaxe(component name) + Model + Joomlahaxes(folder name of this view)
+-main JoomlahaxeModelJoomlahaxes
+--php-front joomlahaxes.php 	
+--php-lib ../lib
+-php bin/com_joomlahaxe/admin/models
 
 --next
-# Add the 1st Admin Model 
+# Add the 2nd Admin Model 
 -cp src/admin
 # This class name needs to reflect the folder structure of the Joomla model. Joomlahaxe(component name) + Model + Joomlahaxe(folder name of this view)
 -main JoomlahaxeModelJoomlahaxe
@@ -64,35 +73,25 @@
 -php bin/com_joomlahaxe/admin/models
 
 --next
-# Add the 2nd Admin Model 
--cp src/admin
-# This class name needs to reflect the folder structure of the Joomla model. Joomlahaxe(component name) + Model + Joomlahaxe(folder name of this view)
--main JoomlahaxeModelJhaxe
---php-front jhaxe.php 	
---php-lib ../lib
--php bin/com_joomlahaxe/admin/models
-
---next
 # Add the Admin Top Controller 
 -cp src/admin
 -main JoomlahaxeController
 --php-front controller.php 	
---php-lib ../lib
 -php bin/com_joomlahaxe/admin
 
 --next
 # Add the Admin Sub Controller 1
 -cp src/admin
--main JoomlahaxeControllerJoomlahaxe
---php-front joomlahaxe.php 	
+-main JoomlahaxeControllerJoomlahaxes
+--php-front joomlahaxes.php 	
 --php-lib ../lib
 -php bin/com_joomlahaxe/admin/controllers
 
 --next
 # Add the Admin Sub Controller 2
 -cp src/admin
--main JoomlahaxeControllerJhaxe
---php-front jhaxe.php 	
+-main JoomlahaxeControllerJoomlahaxe
+--php-front joomlahaxe.php 	
 --php-lib ../lib
 -php bin/com_joomlahaxe/admin/controllers
 
@@ -109,20 +108,20 @@
 -cmd (perl -pi -e 's/JoomlahaxeModelJoomlahaxe::main\(\);/require_once dirname\(__FILE__\)\."\/..\/lib\/JoomlahaxeModelJoomlahaxe.class.php";/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/site/models/joomlahaxe.php)
 
 #search/replace code in admin folder:
--cmd (perl -pi -e 's/JoomlahaxeViewJoomlahaxe::main\(\);/require_once dirname\(__FILE__\)\."\/..\/..\/lib\/JoomlahaxeViewJoomlahaxe.class.php";/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/admin/views/joomlahaxe/view.html.php)
+-cmd (perl -pi -e 's/JoomlahaxeViewJoomlahaxes::main\(\);/require_once dirname\(__FILE__\)\."\/..\/..\/lib\/JoomlahaxeViewJoomlahaxes.class.php";/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/admin/views/joomlahaxes/view.html.php)
 
 #search/replace code in admin folder:
--cmd (perl -pi -e 's/JoomlahaxeViewJhaxe::main\(\);/require_once dirname\(__FILE__\)\."\/..\/..\/lib\/JoomlahaxeViewJhaxe.class.php";/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/admin/views/jhaxe/view.html.php)
+-cmd (perl -pi -e 's/JoomlahaxeViewJoomlahaxe::main\(\);/require_once dirname\(__FILE__\)\."\/..\/..\/lib\/JoomlahaxeViewJoomlahaxe.class.php";/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/admin/views/joomlahaxe/view.html.php)
+
+-cmd (perl -pi -e 's/JoomlahaxeModelJoomlahaxes::main\(\);/require_once dirname\(__FILE__\)\."\/..\/lib\/JoomlahaxeModelJoomlahaxes.class.php";/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/admin/models/joomlahaxes.php)
 
 -cmd (perl -pi -e 's/JoomlahaxeModelJoomlahaxe::main\(\);/require_once dirname\(__FILE__\)\."\/..\/lib\/JoomlahaxeModelJoomlahaxe.class.php";/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/admin/models/joomlahaxe.php)
 
--cmd (perl -pi -e 's/JoomlahaxeModelJhaxe::main\(\);/require_once dirname\(__FILE__\)\."\/..\/lib\/JoomlahaxeModelJhaxe.class.php";/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/admin/models/jhaxe.php)
+-cmd (perl -pi -e 's/JoomlahaxeController::main\(\);/require_once dirname\(__FILE__\)\."\/lib\/JoomlahaxeController.class.php";/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/admin/controller.php)
 
--cmd (perl -pi -e 's/JoomlahaxeController::main\(\);/require_once dirname\(__FILE__\)\."\/..\/lib\/JoomlahaxeController.class.php";/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/admin/controller.php)
+-cmd (perl -pi -e 's/JoomlahaxeControllerJoomlahaxes::main\(\);/require_once dirname\(__FILE__\)\."\/..\/lib\/JoomlahaxeControllerJoomlahaxes.class.php";/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/admin/controllers/joomlahaxes.php)
 
 -cmd (perl -pi -e 's/JoomlahaxeControllerJoomlahaxe::main\(\);/require_once dirname\(__FILE__\)\."\/..\/lib\/JoomlahaxeControllerJoomlahaxe.class.php";/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/admin/controllers/joomlahaxe.php)
-
--cmd (perl -pi -e 's/JoomlahaxeControllerJhaxe::main\(\);/require_once dirname\(__FILE__\)\."\/..\/lib\/JoomlahaxeControllerJhaxe.class.php";/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/admin/controllers/jhaxe.php)
 
 -cmd (perl -pi -e 's/(MainAdmin)/require_once dirname\(__FILE__\)."\/lib\/MainAdmin.class.php";\r\1/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/admin/joomlahaxe.php)
 
@@ -132,7 +131,7 @@
 #TODO: automate creation of empty index.html files in every directory
 
 
-#Optional: auto-copy the compiled component to the live site.
+#Optional: auto-copy the compiled component to the local dev site.
 -cmd (cp -r /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/site/* /Applications/MAMPold/htdocs_artworks/components/com_joomlahaxe/)
 -cmd (cp -r /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/admin/* /Applications/MAMPold/htdocs_artworks/administrator/components/com_joomlahaxe/)
 -cmd (cp -r /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/site/language/en-GB/* /Applications/MAMPold/htdocs_artworks/language/en-GB/)

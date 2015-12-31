@@ -1,43 +1,52 @@
 <?php
 
-class JoomlahaxeModelJoomlahaxe extends JModelList {
-	public function __construct() { if(!php_Boot::$skip_constructor) {
-		$config = null;
-		$config = Array("[\"name\":\"Joomlahaxe\"]");
+class JoomlahaxeModelJoomlahaxe extends JModelAdmin {
+	public function __construct($config = null) { if(!php_Boot::$skip_constructor) {
 		parent::__construct($config);
-		defined('_JEXEC') or die("no joomla here, scallywag");
-		jimport("joomla.application.component.modellist");
 	}}
-	public function getListQuery() {
-		$db = JFactory::getDbo();
-		$query = $db->getQuery(true);
-		$query->select("id,name,details,enabled");
-		$query->from("#__joomlahaxe");
-		return $query;
+	public function getTable($type = null, $prefix = null, $config = null) {
+		if($prefix === null) {
+			$prefix = "JoomlahaxeTable";
+		}
+		if($type === null) {
+			$type = "Joomlahaxe";
+		}
+		if($config === null) {
+			$config = array();
+		}
+		return JTable::getInstance($type, $prefix, $config);
 	}
-	public function delete($whichEntry) {
-		die("deleted");
-		return false;
+	public function getForm($data = null, $loadData = null) {
+		if($loadData === null) {
+			$loadData = true;
+		}
+		if($data === null) {
+			$data = array();
+		}
+		$form = $this->loadForm('com_joomlahaxe.joomlahaxe', 'joomlahaxe', array('control' => 'jform', 'load_data' => $loadData));
+		if($form === null) {
+			return false;
+		}
+		return $form;
 	}
-	public function getMsg($id = null) {
-		if($id === null) {
-			$id = 1;
+	public function loadFormData() {
+		$data = JFactory::getApplication()->getUserState('com_joomlahaxe.edit.joomlahaxe.data', array());
+		if($data === null) {
+			$data = $this->getItem(null);
 		}
-		if($this->resolve("messages") === null) {
-			$this->messages = php_Lib::toPhpArray(new _hx_array(array()));
-		}
-		if(_hx_array_get($this->resolve("messages"), $id) !== null) {
-			$jinput = JFactory::getApplication()->input;
-			$id = $jinput->get("id", 1, "INT");
-			$table = call_user_func($this->resolve("getTable"));
-			$table->load($id);
-			_hx_array_assign($this->resolve("messages"), $id, $table->greeting);
-		}
-		return _hx_array_get($this->resolve("messages"), $id);
+		$d = "asdf";
+		return $data;
 	}
 	static function main() {
-		new JoomlahaxeModelJoomlahaxe();
 	}
-	static $__properties__ = array("get_htmlFormName = 'adminForm'" => "get_htmlFormName = 'adminForm'","get_filterFormName = null" => "get_filterFormName = null","get_query = array()" => "get_query = array()","get_filter_fields = array()" => "get_filter_fields = array()","get_context = null" => "get_context = null","get_cache = array()" => "get_cache = array()");
+	static $__properties__ = array("get_associationsContext = null" => "get_associationsContext = null","get_batch_commands = array(
+		'assetgroup_id' => 'batchAccess',
+		'language_id' => 'batchLanguage',
+		'tag' => 'batchTag'
+	)" => "get_batch_commands = array(
+		'assetgroup_id' => 'batchAccess',
+		'language_id' => 'batchLanguage',
+		'tag' => 'batchTag'
+	)","get_batch_copymove = 'category_id'" => "get_batch_copymove = 'category_id'","get_events_map = null" => "get_events_map = null","get_event_change_state = null" => "get_event_change_state = null","get_event_before_save = null" => "get_event_before_save = null","get_event_before_delete = null" => "get_event_before_delete = null","get_event_after_save = null" => "get_event_after_save = null","get_event_after_delete = null" => "get_event_after_delete = null","get_text_prefix = null" => "get_text_prefix = null");
 	function __toString() { return 'JoomlahaxeModelJoomlahaxe'; }
 }

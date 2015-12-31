@@ -14,7 +14,7 @@ JHtml::_('behavior.tooltip');
 		</ul>
 	</fieldset>
 	<div>
-		<input type="hidden" name="task" value="jhaxe.edit" />
+		<input type="hidden" name="task" value="joomlahaxe.edit" />
 		<?php echo JHtml::_('form.token'); ?>
 	</div>
 </form>

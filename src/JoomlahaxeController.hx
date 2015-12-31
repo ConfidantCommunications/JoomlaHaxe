@@ -5,6 +5,7 @@ import php.Lib;
 @:build(PHP.generateExtern("legacy/controller/legacy.php")) 
 class JControllerLegacy implements Dynamic { } 
 
+
 class JoomlahaxeController extends JControllerLegacy
 {
     static public function main()
@@ -36,5 +37,7 @@ class JoomlahaxeController extends JControllerLegacy
 	//http://localhost/index.php?option=com_helloworld&task=insert
 
 	//This would try to call a function insert() of our controller (which we would actually have to implement in HelloWorldController ).
+	
+	
 }
 

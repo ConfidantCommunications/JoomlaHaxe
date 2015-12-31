@@ -1,24 +1,17 @@
 <?php
 
-class JoomlahaxeControllerJoomlahaxe extends JControllerAdmin {
-	public function __construct($config) { if(!php_Boot::$skip_constructor) {
+class JoomlahaxeControllerJoomlahaxe extends JControllerForm {
+	public function __construct($config = null) { if(!php_Boot::$skip_constructor) {
+		$GLOBALS['%s']->push("JoomlahaxeControllerJoomlahaxe::new");
+		$__hx__spos = $GLOBALS['%s']->length;
 		parent::__construct($config);
-		defined('_JEXEC') or die();
-		jimport("joomla.application.component.controlleradmin");
+		$GLOBALS['%s']->pop();
 	}}
-	public function getModel($name = null, $prefix = null) {
-		if($prefix === null) {
-			$prefix = "JoomlahaxeModel";
-		}
-		if($name === null) {
-			$name = "Joomlahaxe";
-		}
-		$model = parent::getModel($name, $prefix, array('ignore_request' => true));
-		return $model;
-	}
 	static function main() {
-		new JoomlahaxeControllerJoomlahaxe(null);
+		$GLOBALS['%s']->push("JoomlahaxeControllerJoomlahaxe::main");
+		$__hx__spos = $GLOBALS['%s']->length;
+		$GLOBALS['%s']->pop();
 	}
-	static $__properties__ = array("get_view_list" => "get_view_list","get_text_prefix" => "get_text_prefix","get_option" => "get_option");
+	static $__properties__ = array("get_text_prefix" => "get_text_prefix","get_view_list" => "get_view_list","get_view_item" => "get_view_item","get_option" => "get_option","get_context" => "get_context");
 	function __toString() { return 'JoomlahaxeControllerJoomlahaxe'; }
 }

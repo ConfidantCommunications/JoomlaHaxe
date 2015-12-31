@@ -6,6 +6,6 @@ if(version_compare(PHP_VERSION, '5.1.0', '<')) {
 ;
 require_once dirname(__FILE__).'/../lib/php/Boot.class.php';
 
-require_once dirname(__FILE__)."/../lib/JoomlahaxeControllerJhaxe.class.php";
+require_once dirname(__FILE__)."/../lib/JoomlahaxeControllerJoomlahaxes.class.php";
 
 ?>

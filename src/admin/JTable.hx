@@ -1,4 +1,5 @@
 package;
+import php.
 extern class JTable extends JObject 
 {
 
