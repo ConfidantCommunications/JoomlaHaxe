@@ -2,6 +2,7 @@ package;
 
 
 import php.Lib;
+import php.NativeArray;
 @:build(PHP.generateExtern("legacy/view/legacy.php")) 
 class JViewLegacy implements Dynamic { }
 
@@ -10,7 +11,8 @@ class JViewLegacy implements Dynamic { }
 
 class JoomlahaxeViewJoomlahaxe extends JViewLegacy
 {
-	var msg:String;
+	var msg:String; 
+	//var msg:NativeArray;
 	public static function main () {
 		
 		new JoomlahaxeViewJoomlahaxe ();

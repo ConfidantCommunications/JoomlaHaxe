@@ -13,6 +13,10 @@ defined('_JEXEC') or die('Restricted Access');
 		</td>
 		<td>
 			
+			<?php echo $item->name; ?>
+		</td>
+		<td>
+			
 			<?php echo $item->details; ?>
 		</td>
 		<td>

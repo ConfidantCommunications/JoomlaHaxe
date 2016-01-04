@@ -38,13 +38,16 @@ class JoomlahaxeViewJoomlahaxe extends JViewLegacy
 		var input = untyped __php__('JFactory::getApplication()->input;');
 		input.set('hidemainmenu', true);
 		var isNew:Bool=false;
-		Lib.print("Item:");
-		Lib.print(theItem);
-		Lib.print("Form:");
-		Lib.print(theForm);
+		//Lib.print("Item:");
+		untyped __php__("print_r($theItem);");
+		Lib.print("<br /><br />");
+		
+		untyped __php__("print_r($theForm);");		
+		//Lib.print("<br />Form:");
+		//Lib.print(theForm);
 			//Lib.print("id:"+this.item.id);
 		try{
-			isNew=(this.item.id==0);
+			isNew=(theItem.id=="0");
 			
 		} catch (e:Dynamic){
 			Lib.print(e);

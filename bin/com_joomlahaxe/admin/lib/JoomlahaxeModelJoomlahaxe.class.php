@@ -25,6 +25,7 @@ class JoomlahaxeModelJoomlahaxe extends JModelAdmin {
 		}
 		$form = $this->loadForm('com_joomlahaxe.joomlahaxe', 'joomlahaxe', array('control' => 'jform', 'load_data' => $loadData));
 		if($form === null) {
+			die("getForm die, line 54");
 			return false;
 		}
 		return $form;

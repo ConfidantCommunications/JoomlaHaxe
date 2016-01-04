@@ -2,6 +2,8 @@ package ;
 
 
 import php.Lib;
+
+//tried this, gave up. 
 //import sys.db.Connection;
 //import Entry;
 
@@ -43,7 +45,7 @@ class JoomlahaxeModelJoomlahaxe extends JModelLegacy
 	//getMsg() gets called when the view does this.get('Msg');
 	//Joomla looks for this function name based on the parameter passed
 	
-	public function getMsg() 
+	public function getMsg() :Dynamic //this is easiest for now
 	{
 		if (msg==null) 
 		{
@@ -64,26 +66,27 @@ class JoomlahaxeModelJoomlahaxe extends JModelLegacy
 			var a=db.quoteName(['id', 'name', 'details', 'enabled']);
 			query.select(a);
 			
-			
-			//untyped __php__("$query->from($db->quoteName('#__joomlahaxe'));");
-			//untyped __php__("print_r($db->quoteName('#__joomlahaxe'))");
-			
 			query.from('#__joomlahaxe');  //also works as '`#__joomlahaxe`'
 			//db.quoteName('#__joomlahaxe') doesn't work
 			
-			
-			query.where('`name` LIKE "%example%"');
+			//optional:
+			//query.where('`name` LIKE "%example%"');
 			
 			//want to see the raw query?
 			//untyped __php__("print_r($query->__toString())");
 			
 			
 			query.order('\'ordering ASC\'');
+			
+			//optional:
+			//query.setLimit('3');
 
 			// Reset the query using our newly populated query object.
 			db.setQuery(query);
 
 			// The results come as a list of php stdClass objects, and must be converted with "toHaxeArray" in order to use in Haxe.
+			
+			//the code below is useful when NOT using a native PHP template
 			// Look at http://api.haxe.org/php/Lib.html for more useful such functions.
 			results = Lib.toHaxeArray(db.loadObjectList());
 

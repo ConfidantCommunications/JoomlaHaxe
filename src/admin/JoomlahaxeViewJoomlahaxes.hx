@@ -6,8 +6,6 @@ import php.Lib;
 class JViewLegacy implements Dynamic { }
 
 
-
-//admin/views/helloworlds/view.html.php
 class JoomlahaxeViewJoomlahaxes extends JViewLegacy
 {
 	var i:Dynamic;

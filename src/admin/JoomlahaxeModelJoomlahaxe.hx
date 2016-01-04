@@ -28,10 +28,11 @@ class JoomlahaxeModelJoomlahaxe extends JModelAdmin
 	}
 	public function getForm(data = null, loadData = true)
 	{
-		//untyped __php__('die()');
+		//untyped __php__('die("getForm die, line 31")');
 		if (data==null)
 		{
  			data=untyped __php__('array()');//=Lib.toPhpArray(new Array<Dynamic>());
+			//untyped __php__('die("getForm die, line 35")');
 		}
 			/*
 		// Get the form.
@@ -50,6 +51,7 @@ class JoomlahaxeModelJoomlahaxe extends JModelAdmin
 
 		if (form==null)
 		{
+			untyped __php__('die("getForm die, line 54")');
 			return false;
 		}
 		return form;

@@ -12,6 +12,11 @@ JHtml::_('behavior.tooltip');
 			<li><?php echo $field->label;echo $field->input;?></li>
 <?php endforeach; ?>
 		</ul>
+		
+		<?php //echo $this->form->getControlGroup('id'); ?>
+		<?php //echo $this->form->getControlGroup('name'); ?>
+		<?php //echo $this->form->getControlGroup('details'); ?>
+		<?php //echo $this->form->getControlGroup('enabled'); ?>
 	</fieldset>
 	<div>
 		<input type="hidden" name="task" value="joomlahaxe.edit" />

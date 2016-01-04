@@ -18,7 +18,6 @@ class JoomlahaxeModelJoomlahaxe extends JModelLegacy {
 			$a = $db->quoteName((new _hx_array(array("id", "name", "details", "enabled"))));
 			$query->select($a);
 			$query->from("#__joomlahaxe");
-			$query->where("`name` LIKE \"%example%\"");
 			$query->order("'ordering ASC'");
 			$db->setQuery($query);
 			{
