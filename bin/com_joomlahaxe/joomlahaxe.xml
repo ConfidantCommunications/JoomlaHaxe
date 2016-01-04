@@ -27,9 +27,11 @@
 	<files folder="site">
 		<filename>index.html</filename>
 		<filename>joomlahaxe.php</filename>
-		<folder>views</folder>
-		<folder>lib</folder>
 		<folder>cache</folder>
+		<folder>language</folder>
+		<folder>lib</folder>
+		<folder>models</folder>
+		<folder>views</folder>
 	</files>
 
 	<administration>
@@ -37,11 +39,16 @@
 		<files folder="admin">
 			<filename>index.html</filename>
 			<filename>joomlahaxe.php</filename>
-			<folder>sql</folder>
+			<filename>controller.php</filename>
 			<folder>cache</folder>
-			<folder>lib</folder>
-			<folder>views</folder>
+			<folder>controllers</folder>
+			<folder>sql</folder>
 			<folder>language</folder>
+			<folder>lib</folder>
+			<folder>models</folder>
+			<folder>sql</folder>
+			<folder>tables</folder>
+			<folder>views</folder>
 		</files>
 		<languages folder="admin">
 			<language tag="en-GB">language/en-GB/en-GB.com_joomlahaxe.ini</language>

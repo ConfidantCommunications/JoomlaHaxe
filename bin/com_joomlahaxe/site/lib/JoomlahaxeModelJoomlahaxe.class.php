@@ -11,8 +11,7 @@ class JoomlahaxeModelJoomlahaxe extends JModelLegacy {
 	public $msg;
 	public $results;
 	public function getMsg() {
-		if($this->msg === null) {
-			$this->msg = "Results:<br />";
+		if(_hx_field($this, "msg") === null) {
 			$db = JFactory::getDbo();
 			$query = $db->getQuery(true);
 			$a = $db->quoteName((new _hx_array(array("id", "name", "details", "enabled"))));

@@ -20,7 +20,7 @@ class JModelLegacy implements Dynamic { }
 
 class JoomlahaxeModelJoomlahaxe extends JModelLegacy
 {
-	var msg:String;
+	var msg:Dynamic;
 	//var db:JDatabaseDriverMysqli; not used; see macro note above
 	//var query:JDatabaseQueryMysqli;
 	var results:Array<Dynamic>;
@@ -49,7 +49,7 @@ class JoomlahaxeModelJoomlahaxe extends JModelLegacy
 	{
 		if (msg==null) 
 		{
-			msg = 'Results:<br />';
+			//msg = 'Results:<br />';
 		
 
 			
