@@ -29,11 +29,8 @@ class JoomlahaxeViewJoomlahaxe extends JViewLegacy {
 		$input = JFactory::getApplication()->input;;
 		$input->set("hidemainmenu", true);
 		$isNew = false;
-		print_r($theItem);;
-		php_Lib::hprint("<br /><br />");
-		print_r($theForm);;
 		try {
-			$isNew = $theItem->id === "0";
+			$isNew = !$theItem->id;
 		}catch(Exception $__hx__e) {
 			$_ex_ = ($__hx__e instanceof HException) ? $__hx__e->e : $__hx__e;
 			$e = $_ex_;

@@ -24,7 +24,8 @@
 			//also works:
 			//untyped __php__("JRequest::setVar('view', JRequest::getCmd('view', 'Joomlahaxes'))");
 
-			JRequest.setVar('view', JRequest.getCmd('view', 'Joomlahaxes'));
+			//had to add "default" and "method" and true below (Joomla defaults) because haxe was passing null and it wasn't working
+			JRequest.setVar('view', JRequest.getCmd('view', 'Joomlahaxes',"default"),"method",true);
 			
 			
 			

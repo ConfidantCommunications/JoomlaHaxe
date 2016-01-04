@@ -67,20 +67,18 @@ class JoomlahaxeModelJoomlahaxe extends JModelLegacy
 			query.select(a);
 			
 			query.from('#__joomlahaxe');  //also works as '`#__joomlahaxe`'
-			//db.quoteName('#__joomlahaxe') doesn't work
 			
 			//optional:
 			//query.where('`name` LIKE "%example%"');
-			
-			//want to see the raw query?
-			//untyped __php__("print_r($query->__toString())");
-			
 			
 			query.order('\'ordering ASC\'');
 			
 			//optional:
 			//query.setLimit('3');
 
+			//want to see the raw query?
+			//untyped __php__("print_r($query->__toString())");
+			
 			// Reset the query using our newly populated query object.
 			db.setQuery(query);
 
@@ -88,6 +86,7 @@ class JoomlahaxeModelJoomlahaxe extends JModelLegacy
 			
 			//the code below is useful when NOT using a native PHP template
 			// Look at http://api.haxe.org/php/Lib.html for more useful such functions.
+			/*
 			results = Lib.toHaxeArray(db.loadObjectList());
 
 			for (i in results) {
@@ -96,7 +95,9 @@ class JoomlahaxeModelJoomlahaxe extends JModelLegacy
 				msg+=i.details+"<br />";
 				msg+=i.enabled+"<br />"+"<br />";
 			}
-
+			*/
+			
+			msg=db.loadObjectList();
 
 		}
 		

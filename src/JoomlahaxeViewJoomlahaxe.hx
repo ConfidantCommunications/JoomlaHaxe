@@ -11,8 +11,8 @@ class JViewLegacy implements Dynamic { }
 
 class JoomlahaxeViewJoomlahaxe extends JViewLegacy
 {
-	var msg:String; 
-	//var msg:NativeArray;
+	//var msg:String; 
+	var msg:NativeArray;
 	public static function main () {
 		
 		new JoomlahaxeViewJoomlahaxe ();

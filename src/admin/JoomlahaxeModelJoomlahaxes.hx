@@ -33,35 +33,49 @@ class JoomlahaxeModelJoomlahaxes extends JModelList
 		
 		return query;
 	}
-	public function delete(whichEntry:Int):Bool
+	public function delete(whichEntries:NativeArray):Bool
 	{
-		untyped __php__('die("deleted")');
-		return false;
-	}
-	/*public function getMsg(id = 1) 
-	{
-		if (this.messages==null)
-		{
-			this.messages=Lib.toPhpArray(new Array<Dynamic>());
-		}
- 
-		if (this.messages[id]!=null) 
-		{
-            //request the selected id
-			var jinput = untyped __php__('JFactory::getApplication()->input');
-			id = jinput.get('id', 1, 'INT' );
- 			
+		// Warning: this is an oversimplified version of a delete function with no ACL or filter functions. 
+		var iii=Lib.toHaxeArray(whichEntries);
+
+		for(thisEntry in iii){
+
+			var db = untyped __call__('JFactory::getDbo'); //creates a JDatabaseDriverMysqli Object
+
+			var a=db.quoteName('#__joomlahaxe');
+			var query = db.getQuery(true);
+			query.from(a);
+			query.delete();
+
+
+			query.where('id = ' + thisEntry);
+
+			//untyped __php__("print_r($query->__toString())");
+			//untyped __php__('die()');
+			db.setQuery(query);
+
+			//$this->setError((string) $query);
+
+			try
+			{
+				db.execute();
+			}
+			catch (e:Dynamic)
+			{
+				Lib.print(e);
+				untyped __php__('die()');
+				//this.setError(e.getMessage());
+
+				return false;
+			}
+
+		
 			
-			// Get a TableJoomlahaxe instance
-			var table = this.getTable(); //goes to function above
- 
-			// Load the message
-			table.load(id);
- 
-			// Assign the message
-			this.messages[id] = table.greeting;
 		}
- 
-		return this.messages[id];
-	}*/
+			
+			
+		return true;
+
+		
+	}
 }

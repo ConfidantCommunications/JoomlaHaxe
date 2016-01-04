@@ -34,18 +34,7 @@ class JoomlahaxeModelJoomlahaxe extends JModelAdmin
  			data=untyped __php__('array()');//=Lib.toPhpArray(new Array<Dynamic>());
 			//untyped __php__('die("getForm die, line 35")');
 		}
-			/*
-		// Get the form.
-		var h=new Map<String,String>();
-		h.set('control' , 'jform');
-		h.set('load_data' , loadData?'true':'false');
-		var formArray=Lib.associativeArrayOfHash(h);
-		var form = this.loadForm('com_joomlahaxe.joomlahaxe', 'joomlahaxe',formArray);
-		if (form==null)
-		{
-			return false;
-		}
-		return form;*/
+			
 
 		var form:Dynamic = untyped __php__("$this->loadForm('com_joomlahaxe.joomlahaxe', 'joomlahaxe', array('control' => 'jform', 'load_data' => $loadData))");
 
@@ -69,11 +58,4 @@ class JoomlahaxeModelJoomlahaxe extends JModelAdmin
 	}
 
 
-
-	/*public function edit():Void{
-		untyped __php__('die("edit")');
-	}
-	public function add():Void{
-		untyped __php__('die("add")');
-	}*/
 }

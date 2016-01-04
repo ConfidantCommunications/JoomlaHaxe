@@ -5,7 +5,7 @@ class JoomlahaxeController extends JControllerLegacy {
 		parent::__construct($config);
 	}}
 	public function display($cachable = null, $urlparams = null) {
-		JRequest::setVar("view", JRequest::getCmd("view", "Joomlahaxes", null), null, null);
+		JRequest::setVar("view", JRequest::getCmd("view", "Joomlahaxes", "default"), "method", true);
 		parent::display($cachable,$urlparams);
 		return $this;
 	}

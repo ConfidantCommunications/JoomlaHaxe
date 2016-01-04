@@ -20,23 +20,7 @@ class JoomlahaxeModelJoomlahaxe extends JModelLegacy {
 			$query->from("#__joomlahaxe");
 			$query->order("'ordering ASC'");
 			$db->setQuery($query);
-			{
-				$a1 = $db->loadObjectList();
-				$this->results = new _hx_array($a1);
-			}
-			{
-				$_g = 0;
-				$_g1 = $this->results;
-				while($_g < $_g1->length) {
-					$i = $_g1[$_g];
-					++$_g;
-					$this->msg .= Std::string($i->id) . "<br />";
-					$this->msg .= Std::string($i->name) . "<br />";
-					$this->msg .= Std::string($i->details) . "<br />";
-					$this->msg .= Std::string($i->enabled) . "<br />" . "<br />";
-					unset($i);
-				}
-			}
+			$this->msg = $db->loadObjectList();
 		}
 		return $this->msg;
 	}

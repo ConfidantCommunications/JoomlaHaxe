@@ -8,15 +8,19 @@ JHtml::_('behavior.tooltip');
 	<fieldset class="adminform">
 		<legend>Details</legend>
 		<ul class="adminformlist">
+		<?php 
+			$this->form->bind($this->item); //thanks to http://forum.joomla.org/viewtopic.php?t=602249
+		
+		?>
 <?php foreach($this->form->getFieldset() as $field): ?>
-			<li><?php echo $field->label;echo $field->input;?></li>
+			<li>
+			<?php 
+			echo $field->label;
+			echo $field->input;
+			?>
+			</li>
 <?php endforeach; ?>
 		</ul>
-		
-		<?php //echo $this->form->getControlGroup('id'); ?>
-		<?php //echo $this->form->getControlGroup('name'); ?>
-		<?php //echo $this->form->getControlGroup('details'); ?>
-		<?php //echo $this->form->getControlGroup('enabled'); ?>
 	</fieldset>
 	<div>
 		<input type="hidden" name="task" value="joomlahaxe.edit" />

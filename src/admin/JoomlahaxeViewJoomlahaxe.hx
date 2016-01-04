@@ -39,15 +39,17 @@ class JoomlahaxeViewJoomlahaxe extends JViewLegacy
 		input.set('hidemainmenu', true);
 		var isNew:Bool=false;
 		//Lib.print("Item:");
-		untyped __php__("print_r($theItem);");
-		Lib.print("<br /><br />");
+		//untyped __php__("print_r($theItem);");
+		//Lib.print("<br /><br />");
 		
-		untyped __php__("print_r($theForm);");		
+		//untyped __php__("print_r($theForm);");
+		
 		//Lib.print("<br />Form:");
 		//Lib.print(theForm);
-			//Lib.print("id:"+this.item.id);
+		
+		//Lib.print("id:"+theItem.id);
 		try{
-			isNew=(theItem.id=="0");
+			isNew=(!theItem.id);
 			
 		} catch (e:Dynamic){
 			Lib.print(e);
