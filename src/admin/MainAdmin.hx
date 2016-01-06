@@ -6,6 +6,7 @@ import php.Lib;
 
 class MainAdmin
 {
+	//change these to suit your needs. They are accessed by the macro Class in PHP.hx.
 	@libdirLive("/Applications/MAMPold/htdocs_artworks/libraries/") var ld1:String;
 	@libdirLocal("/Users/allan/Documents/haXe/JoomlaHaxeTest/src/libraries/") var ld2:String;
 	

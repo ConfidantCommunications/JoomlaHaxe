@@ -36,7 +36,7 @@ class JoomlahaxeController extends JControllerLegacy
 
 	//http://localhost/index.php?option=com_helloworld&task=insert
 
-	//This would try to call a function insert() of our controller (which we would actually have to implement in HelloWorldController ).
+	//This would try to call a function insert() of our controller (which we would actually have to implement in JoomlahaxeController ).
 	
 	
 }

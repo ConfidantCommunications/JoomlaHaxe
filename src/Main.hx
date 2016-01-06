@@ -24,7 +24,7 @@ class JApplicationCms implements Dynamic { }
 class Main
 {
 	
-	//change these to suit your needs. They are accessed by the "PHP" macro Class.
+	//change these to suit your needs. They are accessed by the macro Class in PHP.hx.
 	@libdirLive("/Applications/MAMPold/htdocs_artworks/libraries/") var ld1:String;
 	@libdirLocal("/Users/allan/Documents/haXe/JoomlaHaxeTest/src/libraries/") var ld2:String;
 	

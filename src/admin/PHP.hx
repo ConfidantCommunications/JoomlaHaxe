@@ -9,7 +9,6 @@ import haxe.macro.Type;
 /**
  * Utility class with functions that make it easier to write PHP code in Haxe
  * @author Samuel Batista (https://gist.github.com/gamedevsam/a53263ef7ff9de6da5c3)
- * Lines 40 and 75 must be customised for your environment
  */
 class PHP
 {	

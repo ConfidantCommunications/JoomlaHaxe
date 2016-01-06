@@ -2,10 +2,11 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 ?>
-<h1>Output from JoomlaHaxe Component</h1>
+<h1>
+<?php echo ($this->document->title); ?></h1>
 <p>
 <?php 
-echo "<table>";
+echo '<table class="table table-striped">';
 foreach($this->msg as $index=>$value){
 	//print_r($value);
 	echo"<tr>";

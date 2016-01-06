@@ -59,7 +59,7 @@ class PHP {
 			$_g = $args->length;
 			while($_g1 < $_g) {
 				$i = $_g1++;
-				$result->push(_hx_anonymous(array("expr" => haxe_macro_ExprDef::EConst(haxe_macro_Constant::CIdent($args[$i])), "pos" => _hx_anonymous(array("file" => "src/admin/PHP.hx", "min" => 9191, "max" => 9200)))));
+				$result->push(_hx_anonymous(array("expr" => haxe_macro_ExprDef::EConst(haxe_macro_Constant::CIdent($args[$i])), "pos" => _hx_anonymous(array("file" => "src/admin/PHP.hx", "min" => 9132, "max" => 9141)))));
 				unset($i);
 			}
 		}

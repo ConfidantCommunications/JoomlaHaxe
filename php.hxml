@@ -107,10 +107,10 @@
 
 -cmd (perl -pi -e 's/JoomlahaxeModelJoomlahaxe::main\(\);/require_once dirname\(__FILE__\)\."\/..\/lib\/JoomlahaxeModelJoomlahaxe.class.php";/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/site/models/joomlahaxe.php)
 
+
 #search/replace code in admin folder:
 -cmd (perl -pi -e 's/JoomlahaxeViewJoomlahaxes::main\(\);/require_once dirname\(__FILE__\)\."\/..\/..\/lib\/JoomlahaxeViewJoomlahaxes.class.php";/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/admin/views/joomlahaxes/view.html.php)
 
-#search/replace code in admin folder:
 -cmd (perl -pi -e 's/JoomlahaxeViewJoomlahaxe::main\(\);/require_once dirname\(__FILE__\)\."\/..\/..\/lib\/JoomlahaxeViewJoomlahaxe.class.php";/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/admin/views/joomlahaxe/view.html.php)
 
 -cmd (perl -pi -e 's/JoomlahaxeModelJoomlahaxes::main\(\);/require_once dirname\(__FILE__\)\."\/..\/lib\/JoomlahaxeModelJoomlahaxes.class.php";/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/admin/models/joomlahaxes.php)
@@ -124,6 +124,7 @@
 -cmd (perl -pi -e 's/JoomlahaxeControllerJoomlahaxe::main\(\);/require_once dirname\(__FILE__\)\."\/..\/lib\/JoomlahaxeControllerJoomlahaxe.class.php";/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/admin/controllers/joomlahaxe.php)
 
 -cmd (perl -pi -e 's/(MainAdmin)/require_once dirname\(__FILE__\)."\/lib\/MainAdmin.class.php";\r\1/g' /Users/allan/Documents/haXe/JoomlaHaxeTest/bin/com_joomlahaxe/admin/joomlahaxe.php)
+
 
 #remove .DS_Store files on Mac computers
 -cmd (find . -name '.DS_Store' -print0 | xargs -t0 rm)
